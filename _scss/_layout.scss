@@ -58,6 +58,11 @@ body {
 
   .navbar {
     float: right;
+    
+    // new add
+    @media (max-width: 900px) {
+      margin-right: 45px;
+    }
   }
 
   a {
@@ -146,6 +151,7 @@ body {
     @include media($tablet) {
       padding: 5px 10px;
     }
+
   }
 
   @include media($mobile) {
@@ -323,6 +329,7 @@ body.home {
 
   span {
     color: #aaa;
+    // new add
     // font-style: italic;
   }
 }
@@ -360,12 +367,20 @@ body.home {
   }
 }
 
-@media (max-width: 500px) {
-  .github-corner:hover .octo-arm {
-    animation: none;
-  }
-
-  .github-corner .octo-arm {
-    animation: octocat-wave 560ms ease-in-out;
+// new add
+@media (max-width: 480px) {
+  .github-corner {
+    visibility: hidden;
   }
 }
+
+// new add
+// @media (max-width: 500px) {
+//   .github-corner:hover .octo-arm {
+//     animation: none;
+//   }
+
+//   .github-corner .octo-arm {
+//     animation: octocat-wave 560ms ease-in-out;
+//   }
+// }
