@@ -55,6 +55,9 @@ Javascript一直在学，因为发现好多后端用的是Python2， 而我喜�
 
 [豆瓣][douban]上有一些我看过的书单。
 
+我也用[SegmentFault][sf]。
+
+[sf]: https://segmentfault.com/u/er3456qi
 [weibo]: http://weibo.com/u/1717207925
 [douban]: http://book.douban.com/people/er3456qi/
 [github]: https://github.com/er3456qi
