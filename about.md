@@ -45,7 +45,7 @@ Javascript一直在学，因为发现好多后端用的是Python2， 而我喜�
 
 现在已经决定不再写Android而专心写Windows UWP了，因为觉得用Java和写Android的体验比用C Sharp差太多。
 
-现在已经有一个UWP App 在Windows store。以后会移植几个以前写的Android应用到Windows Store。
+现在已经有一个UWP App在Windows store (打个广告：一个番茄工作法的app，手机商店里搜索“好几个番茄” 即可找到）。以后会移植几个以前写的Android应用到Windows Store。
 
 #
 
