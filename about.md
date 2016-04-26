@@ -15,7 +15,7 @@ permalink: /about/
 
 对优雅的代码有强迫症式的偏好。
 
-对手机app和网站前后台开发都有兴趣.最近在做Windows uwp和nodejs 开发。
+对手机app和网站前后台开发都有兴趣。
 
 还有一些介绍在[这里]。
 
@@ -33,9 +33,9 @@ permalink: /about/
 
 HTML/CSS 学了忘忘了学，到现在多少还记得些，够用的。
 
-Python 看了几本书，Webpy、Django、Tornado都试过一遍，应该也算是入门级水平了。
+Python 看了几本书，语言基础没问题了。应用方面，Webpy、Django、Tornado都试过一遍，应该也算是过了入门级水平了。
 
-Javascript一直在学，因为发现好多后端用的是Python2， 而我喜欢写Python3，所以就准备用Node写后端了。打算以后用Python写IoT。
+Javascript很早也学了，偶尔用用，现在比较迷Typescript和AngularJS。
 
 遗憾的是，除了一些实验性质的项目外，真正的web项目基本没有。好在现在打算开始了。
 
@@ -43,7 +43,7 @@ Javascript一直在学，因为发现好多后端用的是Python2， 而我喜�
 
 因为毕业设计的原因，学了C Sharp，后来用了Windows Phone，喜欢上Visual Studio，觉得写C Sharp比Java感觉好多了， C Sharp更优雅。
 
-现在已经决定不再写Android而专心写Windows UWP了，因为觉得用Java和写Android的体验比用C Sharp差太多。
+现在已经决定不再写Java了，取而代之的是C Sharp，因为觉得用Java和写Android的体验比用C Sharp差太多。而且Xamarin也免费了不是么。
 
 现在已经有一个UWP App在Windows store (打个广告：一个番茄工作法的app，手机商店里搜索“好几个番茄” 即可找到）。以后会移植几个以前写的Android应用到Windows Store。
 
