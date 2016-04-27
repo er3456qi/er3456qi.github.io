@@ -9,11 +9,11 @@ tags:
 - Typescript
 ---
 
-# 简介
+## 简介
 
 Typescript支持与Javascript几乎一样的数据类型：布尔值、数字、字符串，结构体等，此外Typescript还提供了很实用的枚举类型。
 
-# Boolean
+## Boolean
 
 {% highlight typescript %}
 
@@ -22,7 +22,7 @@ let isDone: boolean = false;
 {% endhighlight %}
 
 
-# Number
+## Number
 
 支持二进制、八进制、十进制、十六进制。
 
@@ -35,7 +35,7 @@ let hex: number = 0xf00d;
 
 {% endhighlight %}
 
-# String
+## String
 
 单双引号都可以，
 
@@ -59,7 +59,7 @@ I'll be ${ age + 1 } years old next month.`
 {% endhighlight %}
 
 
-# Array
+## Array
 
 {% highlight typescript %}
 
@@ -77,7 +77,7 @@ let list: Array<number> = [1, 2, 3];
 {% endhighlight %}
 
 
-# Tuple
+## Tuple
 
 跟C#中的类似，当然python也有：
 
@@ -93,7 +93,7 @@ x = [10, 'hello']; // Error
 {% endhighlight %}
 
 
-# Enum
+## Enum
 
 {% highlight typescript %}
 
@@ -135,7 +135,7 @@ alert(colorName); // Green
 {% endhighlight %}
 
 
-# Any
+## Any
 
 通常为那些在编程阶段还不能够确认数据类型的变量指定为Any类型。这些值可以来自动态内容，比如用户输入或是第三方库。
 这种情况下，我们不希望类型检查器对这些值进行检查而是直接让它们通过编译时的检查。
@@ -176,7 +176,7 @@ list[1] = 100;
 {% endhighlight %}
 
 
-# Void
+## Void
 
 `void` 有点类似于 `any` 的反义词: 它表示没有任何类型。通常用在没有返回值的方法：
 

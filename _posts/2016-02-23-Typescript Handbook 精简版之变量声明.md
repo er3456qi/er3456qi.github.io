@@ -10,7 +10,7 @@ tags:
 - 变量
 ---
 
-# 变量声明
+## 变量声明
 
  `let` 和 `const` 是JavaScript新出的两个变量声明的方式。前面说过`let` 和 `var`类似，但是它们的作用域是不一样的。
  
@@ -48,7 +48,7 @@ kitty.numLives--;
 Typescript作为Javascript的超集，自然也是支持`let`和`const`的。
 
 
-# 该用哪个
+## 该用哪个
 
 `const`没什么好说的，你需要常量就用它，不需要就不用。但是`let`和`var`要比较一下。
 
