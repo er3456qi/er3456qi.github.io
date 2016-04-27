@@ -55,6 +55,7 @@ SSH密钥 是一种不用密码就可辨认出可信赖电脑的方法。你可�
 1. 把你的公钥文件内容复制到系统剪贴板。你可以直接去打开文件，或者用xclip：
 
     sudo apt-get install xclip  #安装xclip 
+    
     xclip -sel clip < ~/.ssh/id_rsa.pub  #使用xclip将文件内容复制到剪贴板
 
 2. 然后用浏览器打开GitHub，在右上角点击你的头像，选择`Settings`。
