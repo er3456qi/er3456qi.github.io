@@ -19,7 +19,7 @@ tags:
 
 java准备好以后，开始进入正题了：
 
-#android studio
+## android studio
 
 首先下载android studio，能FQ的就FQ去官网下，不能FQ的就在墙内找，也不难找。版本应该至少1以上，以后打开有更新的话可以更新。
 
@@ -27,7 +27,7 @@ java准备好以后，开始进入正题了：
 
 下面要到坑区了...
 
-#android sdk
+## android sdk
 
 首先是android sdk，如果你网不快，并且只想安装某几个版本的sdk的话看下面，否则就跳过这一节（直接看分割线以后）：
 
@@ -112,7 +112,7 @@ sudo apt-get install lib32stdc++6
 
 这样差不多就可以了。你可以很新建个工程看看。如果还有问题的话，可能和你的java有关系，关于java的问题，前面我们说了，如果java的问题严重，可能连android studio都无法打开。
 
-#genymotion
+## genymotion
 
 下面开始说genymotion了！！！这个没啥坑，去官网下载，下载要注册，ubuntu下要自己下载 virtual box，下好后直接安装，安装完后再安装genymotion，genymotion.bin的安装过程其实就是解压而已，你也可以把解压后的文件夹跟android studio放到一起。启动genymotion也是要命令行里运行，在genymotion里面有一个可运行的genymotion文件，运行它就可以，然后你要自己创建一个虚拟机，就是要自己选择一个rom，不到200M，直接点下载就好，不用配置。还有虚拟机的分辨率是可以改的，默认的分辨率很高，在电脑上看着不太和谐，建议最好改一下。具体过程不会的话可以搜一下，我就不截图了。
 
