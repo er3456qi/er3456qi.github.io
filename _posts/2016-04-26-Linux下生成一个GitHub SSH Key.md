@@ -36,9 +36,9 @@ SSH密钥 是一种不用密码就可辨认出可信赖电脑的方法。你可�
 1. 打开终端。
 2. 输入 `ssh-keygen -t rsa -b 4096 -C "your_email@example.com"` ，回车。注意邮箱地址写你自己的github的登陆邮箱。
 3. 之后会有下面的提示，让你输入密钥保存位置，这个一般不用改，直接回车用默认就行:
-> Enter a file in which to save the key (/Users/you/.ssh/id_rsa): [Press enter]
+  > Enter a file in which to save the key (/Users/you/.ssh/id_rsa): [Press enter]
 4. 再之后会提示让你输入一个安全密码，这个自便（可参考[Working with SSH key passphrases][passphrases])。
-> Enter passphrase (empty for no passphrase): [Type a passphrase]
+  > Enter passphrase (empty for no passphrase): [Type a passphrase]
 
 
 ## 添加SSH key到ssh-agent
@@ -50,10 +50,10 @@ SSH密钥 是一种不用密码就可辨认出可信赖电脑的方法。你可�
 ## 添加SSH key到你的GitHub账户
 
 1. 把你的公钥文件内容复制到系统剪贴板。你可以直接去打开文件，或者用xclip：
-~~~ bash
-    sudo apt-get install xclip  #安装xclip 
-    xclip -sel clip < ~/.ssh/id_rsa.pub  #使用xclip将文件内容复制到剪贴板
-~~~
+    ~~~ bash
+        sudo apt-get install xclip  #安装xclip 
+        xclip -sel clip < ~/.ssh/id_rsa.pub  #使用xclip将文件内容复制到剪贴板
+    ~~~
 2. 然后用浏览器打开GitHub，在右上角点击你的头像，选择`Settings`。
 3. 在设置页面的左边，点击`SSH and GPG keys`。
 4. 点击`New SSH key`。
