@@ -36,8 +36,11 @@ SSH密钥 是一种不用密码就可辨认出可信赖电脑的方法。你可�
 1. 打开终端。
 2. 输入 `ssh-keygen -t rsa -b 4096 -C "your_email@example.com"` ，回车。注意邮箱地址写你自己的github的登陆邮箱。
 3. 之后会有下面的提示，让你输入密钥保存位置，这个一般不用改，直接回车用默认就行:
+
     Enter a file in which to save the key (/Users/you/.ssh/id_rsa): [Press enter]
+    
 4. 再之后会提示让你输入一个安全密码，这个自便（可参考[Working with SSH key passphrases][passphrases])。
+
     Enter passphrase (empty for no passphrase): [Type a passphrase]
 
 
@@ -68,6 +71,7 @@ SSH密钥 是一种不用密码就可辨认出可信赖电脑的方法。你可�
 ## 测试你的SSH连接
 
 打开终端，输入`ssh -T git@github.com`。如果返回的内容最后有：
+
     Hi username! You've successfully authenticated, but GitHub does not provide shell access.
 否则，参考这里找到问题的答案：
 
