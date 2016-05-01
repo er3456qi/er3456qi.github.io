@@ -21,20 +21,36 @@ tags:
 
 编码声明，如下所示：
 
+{% highlight python %}
+
     # -*- coding: <encoding-name> -*-
+    
+{% endhighlight %}
    
 就是我们在python脚本文件中经常能看到的，表示此脚本内容以什么编码方式编码。
 它是注释的一种。如果python脚本的第一行或是第二行中出现了能匹配如下正则表达式：
 
+{% highlight python %}
+
     coding[=:]\s*([-\w.]+)
+    
+{% endhighlight %}
 
 的语句，则会被当做是编码声明处理。正则表达式很简单，我就不解释了。只要能匹配这个正则表达式，就可以，所以还有其他的声明方式：
 
+{% highlight python %}
+
     # vim:fileencoding=<encoding-name>
+    
+{% endhighlight %}
 
 这里说的两种编码声明是官方文件里说的两种。另一种更常见的应该是这个：
 
+{% highlight python %}
+
     # coding:utf-8
+
+{% endhighlight %}
 
 它也能匹配上面说的那个正则表达式，所以这个也是可用的。
 如果你使用python 2，如果你的脚本里有非ASCII字符，那么最好要加上编码声明。
@@ -53,11 +69,11 @@ python 3 在 2 的基础上扩展了标识符，支持一些非ASCII字符作为
 
 {% highlight python %}
 
-    [In ]: 1 + 2
-    [Out]: 3
+[In ]: 1 + 2
+[Out]: 3
 
-    [In ]: _
-    [Out]: 3
+[In ]: _
+[Out]: 3
 
 {% endhighlight %}
 
