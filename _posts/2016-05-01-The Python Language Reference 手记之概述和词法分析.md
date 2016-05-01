@@ -100,7 +100,7 @@ AttributeError: 'Person' object has no attribute '__age'
 
 ### 文本
 
-python 中，字节文本总是以 `b` 或 `B` 开头。他们会生成`[bytes][]`而不是`[str][]`。它们可能只包含ASCII 字符，128及以上的数字必须使用转义字符表示。
+python 中，字节文本总是以 `b` 或 `B` 开头。他们会生成[`bytes`][]而不是[`str`][]。它们可能只包含ASCII 字符，128及以上的数字必须使用转义字符表示。
 
 在python 2中，字符串前面加上 `u` 表示该字符串以unicode编码，如`u'字符串``。为了简化2 to 3，python 3 里也默许了这种行为，
 虽然并没啥用（python 3本来就是用unicode编码的）。
