@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "The Python Language Reference 手记之概述和词法分析"
-date:   2016-04-30 19:57:01
+date:   2016-05-01 19:57:01
 meta_description: The Python Language Reference 手记
 categories:
 - blog
@@ -11,29 +11,29 @@ tags:
 
 ## 概述
 
-首先，语言参考只是一个对python这个语言的描述，它并不能作为python的学习教程。但是通过这个语言描述，你可以知道python在语言层面上的一些知识，让你对python有更多的了解。另外，python的内建和标准模块可以参考 [The Python Standard Library][stdlib]。
+首先，语言参考只是一个对Python这个语言的描述，它并不能作为Python的学习教程。但是通过这个语言描述，你可以知道Python在语言层面上的一些知识，让你对Python有更多的了解。另外，Python的内建和标准模块可以参考 [The Python Standard Library][stdlib]。
 我写这文的原因是想让把一些我觉得重要的东西记下来，方便以后查看。当然，既然发出来，也是分享给大家看。
 
 
 ## 词法分析
 
-### python脚本的编码声明
+### Python脚本的编码声明
 
 编码声明，如下所示：
 
 {% highlight python %}
 
     # -*- coding: <encoding-name> -*-
-    
+
 {% endhighlight %}
    
-就是我们在python脚本文件中经常能看到的，表示此脚本内容以什么编码方式编码。
-它是注释的一种。如果python脚本的第一行或是第二行中出现了能匹配如下正则表达式：
+就是我们在Python脚本文件中经常能看到的，表示此脚本内容以什么编码方式编码。
+它是注释的一种。如果Python脚本的第一行或是第二行中出现了能匹配如下正则表达式：
 
 {% highlight python %}
 
     coding[=:]\s*([-\w.]+)
-    
+
 {% endhighlight %}
 
 的语句，则会被当做是编码声明处理。正则表达式很简单，我就不解释了。只要能匹配这个正则表达式，就可以，所以还有其他的声明方式：
@@ -41,7 +41,7 @@ tags:
 {% highlight python %}
 
     # vim:fileencoding=<encoding-name>
-    
+
 {% endhighlight %}
 
 这里说的两种编码声明是官方文件里说的两种。另一种更常见的应该是这个：
@@ -53,13 +53,13 @@ tags:
 {% endhighlight %}
 
 它也能匹配上面说的那个正则表达式，所以这个也是可用的。
-如果你使用python 2，如果你的脚本里有非ASCII字符，那么最好要加上编码声明。
-至于python 3，因为python 3默认采用UTF-8编码，所以一般情况下就不需要了，除非你有特殊的情况要把文件以其他格式编码。
+如果你使用Python 2，如果你的脚本里有非ASCII字符，那么最好要加上编码声明。
+至于Python 3，因为Python 3默认采用UTF-8编码，所以一般情况下就不需要了，除非你有特殊的情况要把文件以其他格式编码。
 
 ### 标识符和保留字
 
-python 2 中的合法标识符（名字）都是ASCII码字符，简明点说就是数字、字母和下划线，其中数字不能做第一个字符。
-python 3 在 2 的基础上扩展了标识符，支持一些非ASCII字符作为标识符的一部分，所以即使你给一个变量取中文名字也是合法的。
+Python 2 中的合法标识符（名字）都是ASCII码字符，简明点说就是数字、字母和下划线，其中数字不能做第一个字符。
+Python 3 在 2 的基础上扩展了标识符，支持一些非ASCII字符作为标识符的一部分，所以即使你给一个变量取中文名字也是合法的。
 
 另外，标识符的长度是没有限制的。
 
@@ -116,10 +116,10 @@ AttributeError: 'Person' object has no attribute '__age'
 
 ### 文本
 
-python 中，字节文本总是以 `b` 或 `B` 开头。他们会生成[`bytes`][]而不是[`str`][]。它们可能只包含ASCII 字符，128及以上的数字必须使用转义字符表示。
+Python 中，字节文本总是以 `b` 或 `B` 开头。他们会生成`[bytes][]`而不是`[str][]`。它们可能只包含ASCII 字符，128及以上的数字必须使用转义字符表示。
 
-在python 2中，字符串前面加上 `u` 表示该字符串以unicode编码，如`u'字符串``。为了简化2 to 3，python 3 里也默许了这种行为，
-虽然并没啥用（python 3本来就是用unicode编码的）。
+在Python 2中，字符串前面加上 `u` 表示该字符串以unicode编码，如`u'字符串``。为了简化2 to 3，Python 3 里也默许了这种行为，
+虽然并没啥用（Python 3本来就是用unicode编码的）。
 
 另外，字符串前面加 `r` 表示原始字符串，该字符串内的转义字符都没有作用。
 
