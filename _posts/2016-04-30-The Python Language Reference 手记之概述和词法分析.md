@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "The Python Language Reference 手记之概述和词法分析"
-date:   2016-05-01 19:57:01
+date:   2016-04-30 19:57:01
 meta_description: The Python Language Reference 手记
 categories:
 - blog
