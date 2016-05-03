@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "The Python Language Reference 手记之数据模型"
+title:  "The Python Language Reference 手记之数据模型 1"
 date:   2016-05-02 18:02:14
 meta_description: The Python Language Reference 手记
 categories:
@@ -111,7 +111,33 @@ Out[18]: 139673881949576
 `a2 = 2` 只是在内存中创建一个值为 `2` 的整数对象，然后把这个对象用变量 `a2`表示而已，这里变量 `a2` 原来表示整数对象 `1`， 现在开始表示整数对象 `2`。
 正常啊，因为它是变量啊。
 
+例子的后面，还测试了str类型、list类型和tuple类型，
 
+
+## Python 的数值型
+
+Python 的数值型( `[nubmbers.Numbers][number]`) 由数值型字面值生成,或由算术运算和内置算术函数作为值返回。
+数值型对象是不可变对象，其值一旦创建就不可以改变。Python 的数值型和数学上的关系非常密切,但要受到计算机的数值表达能力的限制。
+
+对于整数类型、浮点数类型和虚数类型，Python的区别对待的。
+
+### 整数类型
+
+有两种整数类型：
+* 数值型整数 [Integer][int]： 数值型整数的表示范围在语言上是没有限制的，它只受限于你的可用内存（虚拟内存）。
+对于以移位和屏蔽为目的的运算，数值型正数被当做二进制形式表示。如果是负数,那么就被转换成二进制补码形式,符号位向左扩展。
+
+* 布尔型整数 [Boolean][bool]: 布尔型整数的真值是用假和真来表示。布尔型整数对象只有 `False` 和 `True` 两种值。
+布尔型整数是数值型整数的子类型，它的值分别用数值 0 和 1 表示，当需要转换成字符串时，会分别用 `False` 和 `True` 表现。
+
+### 浮点数类型
+
+Python的[浮点数][float]表示的是机器级别的双精度浮点数。Python是不支持单精度浮点数的，因为使用单精度浮点数的原因通常是减少CPU负荷和节省内存,
+但是这一节省被对象在Python中的使用开销所抵消,所以Python没有必要支持两种浮点数，那会使语言变得复杂。
+
+### 复数类型
+
+[复数][complex]使用了一对双精度浮点数，就是说它的实部和虚部都是浮点数类型，虚数 `z` 的实部和虚部的访问方式：`z.real`、`z.imag`。
 
 
 [is]: https://docs.python.org/3/reference/expressions.html#is
@@ -122,3 +148,8 @@ Out[18]: 139673881949576
 [except]: https://docs.python.org/3/reference/compound_stmts.html#except
 [finally]: https://docs.python.org/3/reference/compound_stmts.html#finally
 [with]: https://docs.python.org/3/reference/compound_stmts.html#with
+[number]: https://docs.python.org/3/library/numbers.html#numbers.Number
+[int]: https://docs.python.org/3/library/functions.html#int 
+[bool]: https://docs.python.org/3/library/functions.html#bool
+[float]: https://docs.python.org/3/library/functions.html#float
+[complex]: https://docs.python.org/3/library/functions.html#complex
