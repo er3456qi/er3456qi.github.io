@@ -175,13 +175,13 @@ Flask 默认会在 `/templates` 文件夹内寻找模板。
 
 {% highlight html %}
 
-<!doctype html>
-<title>Hello from Flask</title>
-{% if name %}
-    <h1>Hello {{ name }}!</h1>
-{% else %}
-    <h1>Hello World!</h1>
-{% endif %}
+    <!doctype html>
+    <title>Hello from Flask</title>
+    {% if name %}
+        <h1>Hello {{ name }}!</h1>
+    {% else %}
+        <h1>Hello World!</h1>
+    {% endif %}
 
 {% endhighlight %}
 
