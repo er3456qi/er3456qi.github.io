@@ -124,15 +124,12 @@ def show_post(post_id):
 {% endhighlight %}
 
 动态的 web 应用也需要静态文件，一般是 CSS 和 JavaScript 文件。
-Flask 默认静态文件位于应用的 /static 文件夹中。静态文件的链接也可以由 `url_for()` 函数生成：
+Flask 默认静态文件位于应用的 `/static` 文件夹中。静态文件的链接也可以由 `url_for()` 函数生成：
 
 {% highlight python %}
 
-"""
-   使用选定的 'static' 端点就可以生成相应的 URL，
-   这个静态文件在文件系统中的位置应该是 static/style.css
-"""
-
+# 使用选定的 'static' 端点就可以生成相应的 URL，
+# 这个静态文件在文件系统中的位置应该是 static/style.css
 url_for('static', filename='style.css')
 
 {% endhighlight %}
@@ -140,7 +137,7 @@ url_for('static', filename='style.css')
 
 ## HTTP 方法
 
-默认情况下，一个路由只回应 GET 请求，但是可以通过 methods 参数使用不同方法。比如：
+默认情况下，一个路由只回应 GET 请求，但是可以通过 `methods` 参数使用不同方法。比如：
 
 {% highlight python %}
 
@@ -159,7 +156,7 @@ def login():
 ## 模板
 
 Flask 使用 [Jinja2][jinja2] 作为模板引擎。
-在Flask中，使用 render_template() 方法可以渲染模板，你只要提供模板名称和需要作为参数传递给模板的变量就行了。例子：
+在Flask中，使用 `render_template()` 方法可以渲染模板，你只要提供模板名称和需要作为参数传递给模板的变量就行了。例子：
 
 {% highlight python %}
 
@@ -193,7 +190,7 @@ Flask 默认会在 `/templates` 文件夹内寻找模板。
 ## 请求对象
 
 在 Flask 中，客户端向服务器发送的数据由全局（本线程内）对象 `request` 来提供。关于 `request` 的使用，
-首先，你必须从 flask 模块导入请求对象，之后通过使用 method 属性可以操作当前请求方法，通过使用 form 属性处理表单数据。
+首先，你必须从 flask 模块导入请求对象，之后通过使用 `method` 属性可以操作当前请求方法，通过使用 form 属性处理表单数据。
 以下是使用两个属性的例子:
 
 {% highlight python %}
@@ -217,7 +214,7 @@ def login():
 当 form 属性中不存在这个键时会引发一个 `KeyError` 。如果你不像捕捉一个标准错误一样捕捉 `KeyError` ，
 那么会显示一个 `HTTP 400 Bad Request` 错误页面。因此，多数情况下你不必处理这个问题。
 
-要操作 URL （如 ?key=value ）中提交的参数可以使用 args 属性:
+要操作 URL （如 `?key=value` ）中提交的参数可以使用 `args` 属性:
 
 {% highlight python %}
 
@@ -270,7 +267,7 @@ def upload_file():
 
 ## Cookies
 
-要访问 cookies ，可以使用 [cookies][] 属性。可以使用请求对象 的 `[set_cookie][setcookie]`方法来设置 cookies。
+要访问 cookies ，可以使用 [cookies][] 属性。可以使用请求对象 的 [`set_cookie`][setcookie]方法来设置 cookies。
 请求对象的 cookies 属性是一个包含了客户端传输的所有 cookies 的字典。 
 在 Flask 中，如果能够使用 会话（session） ，那么就不要直接使用 cookies，因为会话比较安全一些。
 
@@ -339,7 +336,7 @@ def page_not_found(error):
 
 {% endhighlight %}
 
-注意 render_template() 后面的 404，这表示页面对就的出错代码是 404 ，即页面不存在。缺省情况下 200 表示一切正常。
+注意 `render_template()` 后面的 404，这表示页面对就的出错代码是 404 ，即页面不存在。缺省情况下 200 表示一切正常。
 
 ## 关于响应
 
