@@ -171,17 +171,17 @@ def hello(name=None):
 
 Flask 默认会在 `/templates` 文件夹内寻找模板。
 
-模板举例：
+模板举例(模板原因，下面代码中的`\`请无视)：
 
 {% highlight html %}
 
 <!doctype html>
 <title>Hello from Flask</title>
-{% if name %}
-    <h1>Hello {{ name }}!</h1>
-{% else %}
+{\% if name %}
+    <h1>Hello {\{ name }}!</h1>
+{\% else %}
     <h1>Hello World!</h1>
-{% endif %}
+{\% endif %}
 
 {% endhighlight %}
 
