@@ -173,17 +173,17 @@ Flask 默认会在 `/templates` 文件夹内寻找模板。
 
 模板举例：
 
-{% highlight html %}
+<code>
 
 <!doctype html>
 <title>Hello from Flask</title>
-{\% if name %}
-    <h1>Hello {\{ name }}!</h1>
-{\% else %}
+{% if name %}
+    <h1>Hello {{ name }}!</h1>
+{% else %}
     <h1>Hello World!</h1>
-{\% endif %}
+{% endif %}
 
-{% endhighlight %}
+</code>
 
 提醒：在模板内部你也可以访问 `request` 、`session` 和 `g` 对象，以及 `get_flashed_messages()` 函数。
 
