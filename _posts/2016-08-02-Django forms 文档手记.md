@@ -110,11 +110,11 @@ def get_name(request):
 我们不需要在 html 模板中做很多工作。最简单的例子是：
 
 ```html
-<form action="/your-name/" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit" />
-</form>
+    <form action="/your-name/" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit" />
+    </form>
 ```
 根据 `{{ form }}`，所有的表单字段和它们的属性将通过 Django 的模板语言拆分成 HTML 标记 。
 
