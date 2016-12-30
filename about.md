@@ -5,7 +5,7 @@ permalink: /about/
 
 # 简介
 
-涂文博，计算机专业。
+计算机专业。
 
 喜欢有创意有脑洞的事，是个有趣的人。对新事物有浓厚的学习兴趣。
 
@@ -52,8 +52,6 @@ Javascript很早也学了，偶尔用用，现在比较迷Typescript和AngularJS
 # 与我联系
 
 可以在[微博][weibo]上找到我，或者发邮件<er3456qi@outlook.com>。
-
-[豆瓣][douban]上有一些我看过的书单。
 
 我也用[SegmentFault][sf]。
 
