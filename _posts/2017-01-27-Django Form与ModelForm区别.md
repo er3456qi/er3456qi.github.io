@@ -46,6 +46,15 @@ if form.is_valid():
     form.save()
 ```
 
+由于`ModelForm`与`Model`绑定，因此，在创建`ModelForm`对象时，可以指定其`instance`参数为与其绑定的`Model`：
+
+```python
+    post = get_object_or_404(Post, id=id)
+    form = PostForm(request.POST or None, instance=post)
+```
+
+而`Model`则不可以这样。
+
 
 
 [forms.Form]: https://docs.djangoproject.com/en/1.10/topics/forms/
