@@ -1,27 +1,34 @@
 <!DOCTYPE html>
 <html>
+  <head>
+      
   {% include head.html %}
+
+  {% if site.google-analytics %}
+  {% include google-analytics.html %}
+  {% endif %}
+
+  {% if page.url == "/404.html" %}
+  <meta http-equiv="refresh" content="10; url={{ site.baseurl }}">
+  {% endif %}
+
+  </head>
+
   <body>
-    <main>
-      {% include header.html %}
 
-      <div class="container">
+  {% include header.html %}
+
+  <div class="wrapper">
         {{ content }}
-      </div>
+  </div>
 
-      {% include footer.html %}
+</body>
 
-      {% include github-corner.html %}
+<foot>
 
-      <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-      <script>
-      $(document).ready(function() {
-        $('.sliding-panel-button,.sliding-panel-fade-screen,.sliding-panel-close').on('click touchstart',function (e) {
-          $('.sliding-panel-content,.sliding-panel-fade-screen').toggleClass('is-visible');
-          e.preventDefault();
-        });
-      });
-      </script>
-    </main>
-  </body>
+    {% include footer.html %}
+    {% include foot.html %}
+
+</foot>
+
 </html>

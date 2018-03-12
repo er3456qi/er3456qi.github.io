@@ -1,73 +1,19 @@
+# Site settings
+title: Wen Blog
+name: Wen Blog # your name
+email: er3456qi@gmail.com # your email address
+description: >
+    A Personal Blog Site. # this means to ignore newlines until "baseurl:"
+baseurl: "/wenblog" # the subpath of your site, e.g. /blog
+url: "https://er3456qi.github.io" # the base hostname & protocol for your site
+twitter_username: er3456qi # your Twitter username
+github_username: er3456qi # your Github username
+disqus_username: er3456qi # your disqus username
+
+google-analytics: UA-75034651-1 # add it if you have one
+
+skillstree: false # turn on or off the skills tree in about page
+
 # Build settings
-permalink   : /blog/:year/:title/
-markdown    : kramdown
-highlighter : rouge
-
-paginate: 5
-paginate_path: "/blog/page/:num/"
-gems: [jekyll-paginate]
-
-comments: true
-
-sass:
-  sass_dir: _scss
-  style: compressed # expanded
-
-# SEO settings
-title: WenBlog
-description: "Personal Blog site about python, javascript, c# and some computer things"
-keywords: "blog, python, javascript, c#, coding"
-url: er3456qi.github.io
-baseurl: ""
-# baseurl: "/end2end"
-
-# Localization strings
-str_blog: 博客
-str_about: 关于
-str_home: 返回主页
-str_archive: 归档
-str_blog_archive: 所有博客
-
-# google_analytics: UA-52446115-1
-
-repo: https://github.com/er3456qi
-
-# Disqus
-# disqus_shortname: "fernandomoreira"
-# disqus_site_shortname: "fernandomoreira"
-
-# Author settings
-author:
-  name      : Wnbot
-#   job       : Frontend Engineer
-  buzz1     : 喜欢有创意有脑洞的事，是个有趣的人
-  buzz2     : 人生苦短，我用Python、C#、Javascript 啊哈哈哈
-  thumb     : /images/author.jpg
-  email     : er3456qi@outlook.com
-#   url       : http://nandomoreira.me
-  github    : http://github.com/er3456qi
-  weibo     : http://weibo.com/u/1717207925
-  twitter   : https://twitter.com/er3456qi
-#   facebook  : http://facebook.com/er3456qi
-  segmentfault  : https://segmentfault.com/u/er3456qi
-
-# navbar pages
-navbar:
-  - slug: blog
-    title: 博客
-  - slug: archive
-    title: 归档
-  - slug: about
-    title: 关于
-#   - slug: projects
-#     title: 项目
-  # - slug: about
-  #   title: About
-  # - slug: blog
-  #   title: Blog
-  # - slug: resume
-  #   title: Resume
-  # - slug: skills
-  #   title: Skills
-
-exclude: ["gulp", "node_modules", "bower", "bower_components", "config.rb", "src", "Gemfile", "Gemfile.lock", ".rvmrc", ".rbenv-version", "package.json", "gulpfile.js", "README.md", "Rakefile", "changelog.md", ".sass-cache"]
+permalink: none
+markdown: kramdown

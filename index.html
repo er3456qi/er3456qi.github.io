@@ -1,22 +1,17 @@
 ---
-layout: home
+layout: default
 ---
 
-<section class="hero">
+<style>
 
-  <div class="hero-inner container">
+.index-content {
+	margin-top: 30%;
+	margin-bottom: 30%;
+	font-size: 18px;
+}
 
-    <img src="{{ site.author.thumb | prepend: site.baseurl }}" alt="author thumb" class="dot">
-    <h1>Hello!..</h1>
-    <h3>This is <strong itemprop="name">{{ site.author.name }}</strong>'s Blog site.</h3>
-    <h3>{{ site.author.buzz1 }}</h3>
-    <h5>{{ site.author.buzz2 }}</h5>
-<br>
-    <a href="{{ '/about' | prepend: site.baseurl }}" class="btn btn-ghost">{{ site.str_about }}</a>
-    <a href="{{ '/blog' | prepend: site.baseurl }}" class="btn btn-ghost">{{ site.str_blog }}</a>
+</style>
 
-    {% include social.html %}
-
-  </div>
-
-</section>
+<center>
+	<p class="index-content">Hello World, And You.</p>
+</center>
