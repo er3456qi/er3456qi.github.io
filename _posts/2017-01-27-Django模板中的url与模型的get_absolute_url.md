@@ -18,7 +18,7 @@ tags:
 我们可以硬编码，比如，我们要给一篇博客的标题加上链接，当用户点击这个标题时会跳转到该博客内容页面，我们可以这样写：
 
 ```html
-<a href='post/{{ post.id }}'>\{{ post.title }}</a>
+<a href='post/{{ "{{ post.id " }}}}'>{{ "{{ post.title " }}}}</a>
 ```
 
 这好像没什么问题，功能也能实现。
@@ -30,9 +30,9 @@ tags:
 django模板中，提供了`[url][]`标签，即
 
 ```
-{% url 'some-url-name' v1 v2 %}
+{{ "{% url 'some-url-name' v1 v2 " }}%}
 # or
-{% url 'some-url-name' arg1=v1 arg2=v2 %}
+{{ "{% url 'some-url-name' arg1=v1 arg2=v2 " }}%}
 ```
 
 注意url的名字要有引号，后面是参数。
@@ -40,7 +40,7 @@ django模板中，提供了`[url][]`标签，即
 现在，我们使用`url`在模板中写url的时候可以这么写了：
 
 ```
-{% url 'posts:post_detail' post.id %}
+{{ "{% url 'posts:post_detail' post.id " }}%}
 ```
 
 这里假设，`app_name`是`posts`，博客详细内容的视图名为：`post_detail`, 我们往里面传了一个参数：`post.id`。
@@ -81,7 +81,7 @@ class Post(models.Model):
 在模板里我们这样用：
 
 ```
-<a href="{{ post.get_absolute_url }}">{{ post.title}}
+<a href="{{ '{{ post.get_absolute_url ' }}}}">{{ '{{ post.title ' }}}}
 ```
 
 当需要修改`post.id`为`post.title`时，我们只需要修改model里面的`get_absolute_url`方法即可。
