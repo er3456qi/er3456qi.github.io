@@ -4,6 +4,8 @@ title:  "Django模板中的url与模型的get_absolute_url"
 date:   2017-01-27 15:00:21
 categories:
 - blog
+tags:
+- Python
 ---
 
 
@@ -15,8 +17,8 @@ categories:
 
 我们可以硬编码，比如，我们要给一篇博客的标题加上链接，当用户点击这个标题时会跳转到该博客内容页面，我们可以这样写：
 
-```
-<a href='post/{{ post.id }}'>{{ post.title }}</a>
+```html
+<a href='post\/{{ post.id }}'>{{ post.title }}</a>
 ```
 
 这好像没什么问题，功能也能实现。
