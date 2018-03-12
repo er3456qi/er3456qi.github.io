@@ -1,9 +1,10 @@
 ---
 layout: post
-title:  "Django Form与ModelForm区别"
-date:   2017-01-27 15:32:05
-categories:
-- blog
+title: "Django Form与ModelForm区别"
+date: 2017-01-27 15:32:05
+category: programming
+tags: python django
+finished: false
 ---
 
 注：本文会不定期补充，这里的例子还是博客应用。

@@ -1,15 +1,13 @@
 ---
 layout: post
-title:  "ubuntu x64 安装 android studio 不完全教程"
-date:   2015-05-08 18:33:00
-meta_description: ubuntu x64 安装 android studio
-categories:
-- blog
-tags:
-- android
+title: "ubuntu x64 安装 android studio 不完全教程"
+date: 2015-05-08 18:33:00
+category: programming
+tags: ubuntu android
+finished: true
 ---
 
-先说下，Ubuntu 上安装[Android Studio][]真是一路坑阿，一路坑阿，加上天  朝 防火墙挡着，折腾了快一天才弄好阿
+先说下，Ubuntu 上安装[Android Studio][]真是一路坑阿，一路坑阿，加上防火墙挡着，折腾了快一天才弄好啊
 
 找了n多教程，不是抄的就是转的，而且都没说清楚具体咋装阿，一个图一个图截的挺爽的，可是不实用阿，我不再废话了，说正经的
 
@@ -35,13 +33,11 @@ java准备好以后，开始进入正题了：
 
 解压后文件名是android-sdk_r24-linux.tgz，下面是命令行：
 
-{% highlight bash %}
-
+```bash
 cd android-sdk_r24-linux.tgz
 cd tools
 .android
-
-{% endhighlight %}
+```
 
 这样就打开了android sdk manager，它会自动更新列表，如果你没架梯子的话，肯定超慢然后超时，更新失败。所以这里要设置下，点击标题栏，tools-->options，设置个国内的镜像源，我这里用的是中科院的，看图，镜像地址网上有很多，可以搜下android国内镜像。不过国内的镜像我就用成功过一次！！！现在是无法更新的状态...应该是程序原因，因为sdk manager不认我给设置的镜像链接。
 
@@ -103,12 +99,10 @@ cd tools
 
 如果你有上面说的问题的话，那你进入androidsdk文件目录后，在platform文件夹里，运行adb会提示没有文件或是目录，这里的情况是64位ubuntu不能直接运行32位的程序！而adb是32位的！所以这里要安装一些64位系统运行32位程序的依赖：
 
-{% highlight bash %}
-
+```bash
 sudo apt-get install lib32z1 lib32ncurses5 lib32bz2-1.0
 sudo apt-get install lib32stdc++6
-
-{% endhighlight %}
+```
 
 这样差不多就可以了。你可以很新建个工程看看。如果还有问题的话，可能和你的java有关系，关于java的问题，前面我们说了，如果java的问题严重，可能连android studio都无法打开。
 

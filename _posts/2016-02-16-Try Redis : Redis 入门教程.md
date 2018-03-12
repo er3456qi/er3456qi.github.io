@@ -1,14 +1,12 @@
 ---
 layout: post
-title:  "Try Redis : Redis 入门教程"
-date:   2016-02-16 17:06:01
-meta_description: Redis
-categories:
-- blog
-tags:
-- Redis
+title: "Try Redis : Redis 入门教程"
+subtitle: "总结自 Redis 官方文档"
+date: 2016-02-16 17:06:01
+category: programming
+tags: Redis
+finished: true
 ---
-
 
 ## 开篇
 
@@ -16,26 +14,26 @@ Redis 是一种以键值对（key-value）存储数据的NoSQL数据库。
 
 键值对存储数据的本质是以某个键存储某个值。之后你可以用这个键把存储的值取出来。可以用`SET`命令以键‘servername’存储值‘fido’：
 
-{% highlight SQL %}
+```SQL
 
     SET servername 'fido'
 
-{% endhighlight %}
+```
 
 
 这样，数据就被存储了，之后可以使用`GET`取出刚刚存储的数据：
 
-{% highlight SQL %}
+```SQL
 
     GET servername // 返回 "fido"
 
-{% endhighlight %}
+```
 
 对于数据的操作，还有一些基本的命令，比如`INCR`和`DEL`。
 
 `INCR` 用于*原子地*递增一个数值数据。而`DEL`则是删除一个值。
 
-{% highlight SQL %}
+```SQL
 
     SET connections 10
     INCR connections // 返回 11
@@ -43,7 +41,7 @@ Redis 是一种以键值对（key-value）存储数据的NoSQL数据库。
     DEL connections
     INCR connections // 返回 1
 
-{% endhighlight %}
+```
 
 ## 给值指定寿命
 
@@ -58,7 +56,7 @@ Redis 是一种以键值对（key-value）存储数据的NoSQL数据库。
 
 例子：
 
-{% highlight SQL %}
+```SQL
 
     SET resource:lock 'Redis Demo 1'
     TTL resource:lock // 返回 -1
@@ -72,8 +70,8 @@ Redis 是一种以键值对（key-value）存储数据的NoSQL数据库。
     
     SET resource:lock 'Redis Demo 2'
     TTL resource:lock // 返回 -1
-     
-{% endhighlight %}
+
+```
 
 
 ## 列表(list)
@@ -88,7 +86,7 @@ Redis也支持一些复杂的/复合的（complex）数据结构。这里第一�
 
 例子（不用显式的创建列表，在向一个不存在的列表中插入值时，列表会被自动创建，当列表中的最后一个元素被pop后，列表会被自动删除）：
 
-{% highlight SQL %}
+```SQL
 
     RPUSH friends "Alice" // 创建一个列表friends并对其添加一个元素"Alice"
     RPUSH friends "Bob"  // 向friends添加元素"Bob"
@@ -105,7 +103,7 @@ Redis也支持一些复杂的/复合的（complex）数据结构。这里第一�
     LLEN friends // 返回 1
     LRANGE friends 0 -1 // 返回 1) "Alice"
 
-{% endhighlight %}
+```
 
 
 ## 集合（set)
@@ -123,24 +121,24 @@ Redis也支持一些复杂的/复合的（complex）数据结构。这里第一�
 
 例子（跟列表一样，集合也不用显式创建）：
 
-{% highlight SQL %}
+```SQL
 
     SADD superpowers "flight"
     SADD superpowers "x-ray vision"
     SADD superpowers "reflexes"
 
     SREM superpowers "reflexes"
-    
+
     SISMEMBER superpowers "flight" // 返回 1
     SISMEMBER superpowers "reflexes" // 返回 0
-    
+
     SMEMBERS superpowers // 返回 1) "flight", 2) "x-ray vision"
 
     SADD birdpowers "pecking"
     SADD birdpowers "flight"
     SUNION superpowers birdpowers // 返回 1) "pecking", 2) "x-ray vision", 3) "flight"
-    
-{% endhighlight %}
+
+```
 
 
 ## 有序集合（Sorted Sets)
@@ -152,7 +150,7 @@ Redis也支持一些复杂的/复合的（complex）数据结构。这里第一�
 
 来一个例子：
 
-{% highlight SQL %}
+```SQL
 
     ZADD hackers 1940 "Alan Kay"
     ZADD hackers 1906 "Grace Hopper"
@@ -162,67 +160,66 @@ Redis也支持一些复杂的/复合的（complex）数据结构。这里第一�
     ZADD hackers 1969 "Linus Torvalds"
     ZADD hackers 1957 "Sophie Wilson"
     ZADD hackers 1912 "Alan Turing"
-    
-{% endhighlight %}
-    
+
+```
+
 在例子中，第一个参数（出生年）是排序的分数，下面获取索引值2到4的元素（从0开始）：
 
-{% highlight SQL %}
+```SQL
 
     ZRANGE hackers 2 4 // 返回 1) "Claude Shannon", 2) "Alan Kay", 3) "Richard Stallman"
 
-{% endhighlight %}
+```
 
 
 ## Hashes
 
 `Hashes` 是字符串字段和字符串值之间的映射。所以它是表示对象的最佳数据类型：
 
-{% highlight SQL %}
+```SQL
 
     HSET user:1000 name "John Smith"
     HSET user:1000 email "john.smith@example.com"
     HSET user:1000 password "s3cret"
-    
-{% endhighlight %}    
+
+```
 
 使用`HGETALL`获得存储的数据（返回所有的字段名和字段值）:
-    
-{% highlight SQL %}
+
+```SQL
 
     HGETALL user:1000
-    
-{% endhighlight %}
-    
+
+```
+
 也可以把对象的属性一次设置完：
 
-{% highlight SQL %}
+```SQL
 
     HMSET user:1001 name "Mary Jones" password "hidden" email "mjones@example.com"
 
-{% endhighlight %}
+```
 
 获取某个特定字段：
 
-{% highlight SQL %}
+```SQL
 
     HGET user:1001 name // 返回 "Mary Jones"
-    
-{% endhighlight %}
-    
+
+```
+
 数值类型在hash字段中也是很好用的，比如原子地步进一个数啥的都是可以的：
 
-{% highlight SQL %}
+```SQL
 
     HSET user:1000 visits 10
     HINCRBY user:1000 visits 1 // 返回 11
     HINCRBY user:1000 visits 10 // 返回 21
     HDEL user:1000 visits
     HINCRBY user:1000 visits 1 // 返回 1
-    
-{% endhighlight %}
 
-    
+```
+
 ## 结束
 
 本文翻译自[Try Redis][tryredis]。

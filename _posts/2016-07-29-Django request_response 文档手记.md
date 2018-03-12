@@ -1,17 +1,13 @@
 ---
 layout: post
-title:  "Django request_response 文档手记"
-date:   2016-07-29 22:02:23
-meta_description: Django request_response 文档手记
-categories:
-- blog
-tags:
-- Python
+title: "Django request_response 文档手记"
+date: 2016-07-29 22:02:23
+category: programming
+tags: python django
+finished: true
 ---
 
-
-# `Request` 对象和 `Response` 对象
-
+## `Request` 对象和 `Response` 对象
 
 Django 使用 `Request` 对象和 `Response` 对象在系统间传递状态。
 
@@ -23,29 +19,29 @@ Django 使用 `Request` 对象和 `Response` 对象在系统间传递状态。
 
 下面除非特别说明，所有属性都认为是只读的。
 
-#### `HttpRequest.scheme`
+*`HttpRequest.scheme`*
 
 一个字符串，表示请求的模式（通常是http 或https）。
 
-#### `HttpRequest.body`
+*`HttpRequest.body`*
 
 一个字节字符串，表示原始 `HTTP` 请求的正文。它对于处理非HTML 形式的数据非常有用：二进制图像、`XML` 等。 如果要处理常规的表单数据，应该使用 `HttpRequest.POST` 。
 
 你也可以使用“类似文件”形式的接口从 `HttpRequest` 中读取该数据。
 
-#### `HttpRequest.path`
+*`HttpRequest.path`*
 
 一个字符串，表示请求的页面除域名外的完整路径。
 
 比如： `"/music/bands/the_beatles/"`
 
-#### `HttpRequest.path_info`
+*`HttpRequest.path_info`*
 
 在某些 Web 服务器配置下，主机名后的URL 部分被分成脚本前缀部分和路径信息部分。`path_info` 属性将始终包含路径信息部分，不论使用的 Web 服务器是什么。使用它代替 `path` 可以让代码在测试和开发环境中更容易地切换。
 
 例如，如果应用的 WSGIScriptAlias 设置为 "`/minfo`"，那么当 `path` 是"`/minfo/music/bands/the_beatles/`" 时 `path_info` 将是"`/music/bands/the_beatles/`"。
 
-#### `HttpRequest.method`
+*`HttpRequest.method`*
 
 一个字符串，表示请求使用的HTTP 方法。必须使用大写。例如：
 
@@ -56,23 +52,23 @@ elif request.method == 'POST':
     do_something_else()
 ```
 
-#### `HttpRequest.encoding`
+*`HttpRequest.encoding`*
 
 一个字符串，表示提交的数据的编码方式（如果为 `None` 则表示使用 `DEFAULT_CHARSET` 设置）。这个属性是可写的，你可以修改它来修改访问表单数据使用的编码。接下来对属性的任何访问（例如从 `GET` 或 `POST` 中读取数据）将使用新的 `encoding` 值。如果你知道表单数据的编码不在 `DEFAULT_CHARSET` 中，则使用它。
 
-#### `HttpRequest.content_type`
+*`HttpRequest.content_type`*
 
 一个字符串，表示请求（ `request` ）的 `MIME` 类型。在某些 `CONTENT_TYPE` 头中解析。
 
-#### `HttpRequest.content_params`
+*`HttpRequest.content_params`*
 
 一个字典类型对象，包含 `CONTENT_TYPE` 头数据中的所有参数。
 
-#### `HttpRequest.GET`
+*`HttpRequest.GET`*
 
 一个类似于字典的对象，包含 `HTTP GET` 的所有参数。
 
-#### `HttpRequest.POST`
+*`HttpRequest.POST`*
 
 一个包含所有给定的 `HTTP POST` 参数的类字典对象，提供了包含表单数据的请求。如果需要访问请求中的原始或非表单数据，可以使用 `HttpRequest.body` 属性。
 
@@ -80,21 +76,21 @@ elif request.method == 'POST':
 
 注意：`POST` 不包含上传的文件信息。参见 `FILES`。
 
-#### `HttpRequest.COOKIES`
+*`HttpRequest.COOKIES`*
 
 一个标准的Python 字典，包含所有的 `cookie`。键和值都为字符串。
 
-#### `HttpRequest.FILES`
+*`HttpRequest.FILES`*
 
 一个类似于字典的对象，包含所有的上传文件。`FILES` 中的每个键为`<input type="file" name="" />` 中的name。`FILES` 中的每一个值都是一个已经上传的文件。
 
 注意， `FILES` 只有在请求的方法为 `POST` 且提交的 `<form>` 带有 `enctype="multipart/form-data"` 的情况下才会包含数据。否则，`FILES` 将为一个空的类似于字典的对象。
 
-#### `HttpRequest.META`
+*`HttpRequest.META`*
 
 一个标准的 Python 字典，包含所有的 HTTP 头部。具体的头部信息取决于客户端和服务器。
 
-#### `HttpRequest.resolver_match`
+*`HttpRequest.resolver_match`*
 
 一个 `ResolverMatch` 的实例，表示解析后的 `URL`。这个属性只有在 `URL` 解析方法之后才设置，这意味着它在所有的视图中可以访问，但是在在 `URL` 解析发生之前执行的中间件方法中不可以访问（比如 `process_reques`t，但你可以使用 `process_view` 代替）。
 
@@ -102,11 +98,11 @@ elif request.method == 'POST':
 
 这些属性Django本身并不设置，如果你的app中设置了这些属性，Django会使用它们。
 
-#### `HttpRequest.current_app`
+*`HttpRequest.current_app`*
 
 模板标签 `url` 会使用它作为 `reverse()` 的参数。
 
-#### `HttpRequest.urlconf`
+*`HttpRequest.urlconf`*
 
 它将用来作为当前的请求的根 `URL` 配置，并覆盖 `ROOT_URLCONF` 设置。
 
@@ -116,15 +112,15 @@ elif request.method == 'POST':
 
 一些在 Django 标准库的中的中间件设置在请求（`request`）上的属性。如果你没有在 `request`上看到这些属性，请确保你已经引入了相应的中间件。
 
-#### `HttpRequest.session`
+*`HttpRequest.session`*
 
 来自 `SessionMiddleware`: 一个既可读又可写的类似于字典的对象，表示当前的会话。
 
-#### `HttpRequest.site`
+*`HttpRequest.site`*
 
 来自 `CurrentSiteMiddleware`: 一个通过 `get_current_site()` 返回的站点的实例，表示当前站点。
 
-#### `HttpRequest.user`
+*`HttpRequest.user`*
 
 来自 `AuthenticationMiddleware`： 一个 `AUTH_USER_MODEL` 类型的对象，表示当前登录的用户。如果用户当前没有登录，`user` 将设置为 `django.contrib.auth.models.AnonymousUser` 的一个实例。你可以通过 `is_authenticated()` 区分它们，像这样：
 
@@ -137,7 +133,7 @@ else:
 
 ### 方法
 
-#### `HttpRequest.get_host()`
+*`HttpRequest.get_host()`*
 
 根据从 `HTTP_X_FORWARDED_HOST` （如果打开 `USE_X_FORWARDED_HOST` ）和 `HTTP_HOST` 头部信息返回请求的原始主机。如果这两个头部没有提供相应的值，则使用 `SERVER_NAME` 和 `SERVER_PORT`。
 
@@ -168,17 +164,17 @@ class MultipleProxyMiddleware(MiddlewareMixin):
 ```
 这个中间件应该放置在所有依赖于 `get_host()` 的中间件之前 —— 例如，`CommonMiddleware` 和 `CsrfViewMiddleware`。
 
-#### `HttpRequest.get_port()`
+*`HttpRequest.get_port()`*
 
 根据从 `HTTP_X_FORWARDED_PORT` （如果打开 `USE_X_FORWARDED_PORT` ）和 `SERVER_PORT` 头部信息，返回请求的原始主机的端口号。
 
-#### `HttpRequest.get_full_path()`
+*`HttpRequest.get_full_path()`*
 
 返回path，如果有的话将加上查询字符串。
 
 如： `"/music/bands/the_beatles/?print=true"`
 
-#### `HttpRequest.build_absolute_uri(location)`
+*`HttpRequest.build_absolute_uri(location)`*
 
 返回 `location` 的绝对 `URI`。如果 `location` 没有提供，则设置为 `request.get_full_path()`。
 
@@ -188,7 +184,7 @@ class MultipleProxyMiddleware(MiddlewareMixin):
 
 注意，不建议在同一站点上混合使用 `HTTP` 和 `HTTPS`， 因为 `build_absolute_uri() `会生成和请求模式一样的 `URI`。如果你想要让用户使用 `HTTPS` 建议你把 `HTTP` 重定向为 `HTTPS`。
 
-#### `HttpRequest.get_signed_cookie(key, default=RAISE_ERROR, salt='', max_age=None)`
+*`HttpRequest.get_signed_cookie(key, default=RAISE_ERROR, salt='', max_age=None)`*
 
 返回签名过的 `Cookie` 对应的值，如果签名不再合法则返回 `django.core.signing.BadSignature`。如果提供 `default` 参数，将不会引发异常并返回 `default` 的值。
 
@@ -217,21 +213,21 @@ SignatureExpired: Signature age 1677.3839159 > 60 seconds
 False
 ```
 
-#### `HttpRequest.is_secure()`
+*`HttpRequest.is_secure()`*
 
 如果请求时是安全的，则返回 `True`；即请求是通过 `HTTPS` 发起的。
 
-#### `HttpRequest.is_ajax()`
+*`HttpRequest.is_ajax()`*
 
 如果请求是通过 `XMLHttpRequest` 发起的，则返回 `True`，方法是检查 `HTTP_X_REQUESTED_WITH` 头部是否是字符串 `'XMLHttpRequest'`。大部分现代的 JavaScript 库都会发送这个头部。如果你编写自己的 `XMLHttpRequest` 调用（在浏览器端），你必须手工设置这个值来让 `is_ajax()` 可以工作。
 
 如果一个响应需要根据请求是否是通过 `AJAX` 发起的，并且你正在使用某种形式的缓存例如 `Django 的cache middleware`， 你应该使用 `vary_on_headers('HTTP_X_REQUESTED_WITH')` 装饰你的视图以让响应能够正确地缓存。
 
-#### `HttpRequest.read(size=None)`
-#### `HttpRequest.readline()`
-#### `HttpRequest.readlines()`
-#### `HttpRequest.xreadlines()`
-#### `HttpRequest.__iter__()`
+*`HttpRequest.read(size=None)`*
+*`HttpRequest.readline()`*
+*`HttpRequest.readlines()`*
+*`HttpRequest.xreadlines()`*
+*`HttpRequest.__iter__()`*
 
 这几个方法实现类似文件的接口用于读取 `HttpRequest` 实例。这使得可以用流的方式读取进来的请求。常见的使用常见是使用迭代的解析器处理一个大型的 `XML` 而不用在内存中构建一个完整的 `XML` 树。
 
@@ -255,7 +251,7 @@ for element in ET.iterparse(request):
 
 `QueryDict` 有几个特殊的方法需要说一下：
 
-#### QueryDict.update(other_dict)
+*QueryDict.update(other_dict)*
 
 接收一个 `QueryDict` 或标准字典。类似标准字典的 `update()` 方法，但是它附加到当前字典项的后面，而不是替换掉它们。例如：
 
@@ -267,7 +263,7 @@ for element in ET.iterparse(request):
 >>> q['a'] # or q.get('a'), returns the last one
 ['2']
 ```
-#### `QueryDict.items()`
+*`QueryDict.items()`*
 类似标准字典的items() 方法，但是它只返回最新的值的逻辑。例如：
 
 ```python
@@ -276,18 +272,18 @@ for element in ET.iterparse(request):
 [('a', '3')]
 ```
 
-#### `QueryDict.getlist(key, default)`
+*`QueryDict.getlist(key, default)`*
 以Python 列表形式返回所请求的键的数据。如果键不存在并且没有提供默认值，则返回空列表。它保证返回的是某种类型的列表，除非默认值不是列表。
 
-#### `QueryDict.setlist(key, list_)`
+*`QueryDict.setlist(key, list_)`*
 
 设置给定的键为`list_`。
 
-#### `QueryDict.appendlist(key, item)`
+*`QueryDict.appendlist(key, item)`*
 
 将项追加到内部与键相关联的列表中。
 
-#### `QueryDict.lists()`
+*`QueryDict.lists()`*
 
 类似 `items`，只是它将字典中的每个成员作为列表。例如：
 
@@ -297,7 +293,7 @@ for element in ET.iterparse(request):
 [('a', ['1', '2', '3'])]
 ```
 
-#### `QueryDict.pop(key)`
+*`QueryDict.pop(key)`*
 
 返回给定键的值的列表，并从字典中移除它们。如果键不存在，将引发`KeyError`。例如 ︰
 
@@ -307,7 +303,7 @@ for element in ET.iterparse(request):
 ['1', '2', '3']
 ```
 
-#### `QueryDict.popitem()`
+*`QueryDict.popitem()`*
 
 删除字典任意一个成员（因为没有顺序的概念），并返回二值元组，包含键和键的所有值的列表。在一个空的字典上调用时将引发`KeyError`。例如 ︰
 
@@ -317,7 +313,7 @@ for element in ET.iterparse(request):
 ('a', ['1', '2', '3'])
 ```
 
-#### `QueryDict.dict()`
+*`QueryDict.dict()`*
 
 返回 `QueryDict` 的 `dict` 表示形式。对于 `QueryDict` 中的每个 `(key, list)` 对 ，`dict` 将有 `(key, item)` 对，其中 `item` 是列表中的一个元素：
 
@@ -370,15 +366,15 @@ response['Age'] = 20 # header fields
 
 简单说几个 `HttpResponse` 的方法。
 
-#### `HttpResponse.has_header(header)`
+*`HttpResponse.has_header(header)`*
 
 通过检查首部中是否有给定的首部名称（不区分大小写），来返回 `True` 或 `False` 。
 
-#### `HttpResponse.setdefault(header, value)`
+*`HttpResponse.setdefault(header, value)`*
 
 设置一个首部，除非该首部 `header` 已经存在了。
 
-#### `HttpResponse.set_cookie(key, value='', max_age=None, expires=None, path='/', domain=None, secure=None, httponly=False)`
+*`HttpResponse.set_cookie(key, value='', max_age=None, expires=None, path='/', domain=None, secure=None, httponly=False)`*
 
 设置一个 `Cookie` 。参数与 Python 标准库中的 `Morsel Cookie` 对象相同。
 
@@ -397,37 +393,37 @@ response['Age'] = 20 # header fields
 
  RFC 2109 和 RFC 6265 都声明客户端至少应该支持 `4096` 个字节的 `Cookie` 。对于许多浏览器，这也是最大的大小。如果视图存储大于 `4096` 个字节的 `Cookie`， `Django` 不会引发异常，但是浏览器将不能正确设置 `Cookie`。
 
-#### `HttpResponse.set_signed_cookie(key, value, salt='', max_age=None, expires=None, path='/', domain=None, secure=None, httponly=True)`
+*`HttpResponse.set_signed_cookie(key, value, salt='', max_age=None, expires=None, path='/', domain=None, secure=None, *httponly=True)`
 
 与 `set_cookie()` 类似，但是在设置之前将用密钥签名。通常与 `HttpRequest.get_signed_cookie()` 一起使用。你可以使用可选的 `salt` 参考来增加密钥强度，但需要记住将它传递给对应的 `HttpRequest.get_signed_cookie()` 调用。
 
-#### `HttpResponse.delete_cookie(key, path='/', domain=None)`
+*`HttpResponse.delete_cookie(key, path='/', domain=None)`*
 
 删除指定的 `key` 的 `Cookie`。如果 `key` 不存在则什么也不发生。
 
 由于 `Cookie` 的工作方式，`path` 和 `domain` 应该与 `set_cookie()` 中使用的值相同，否则 `Cookie` 不会删掉。
 
-#### `HttpResponse.write(content)`, `HttpResponse.flush()`, `HttpResponse.tell()`
+*`HttpResponse.write(content)`, `HttpResponse.flush()`, `HttpResponse.tell()`*
 
 这几个方法让 `HttpResponse` 实例变成类似文件的对象。
 
-#### HttpResponse.getvalue()
+*HttpResponse.getvalue()*
 
 返回 `HttpResponse.content` 的值。这个方法让 `HttpResponse` 实例变成类似流的对象。
 
-#### HttpResponse.readable()
+*HttpResponse.readable()*
 
 总是 `False`。这个方法让 `HttpResponse` 实例变成类似流的对象。
 
-#### HttpResponse.seekable()
+*HttpResponse.seekable()*
 
 总是 `False`。这个方法让 `HttpResponse` 实例变成类似流的对象。
 
-#### HttpResponse.writable()
+*HttpResponse.writable()*
 
 总是 `True`。这个方法让 `HttpResponse` 实例变成类似流的对象。
 
-#### HttpResponse.writelines(lines)
+*HttpResponse.writelines(lines)*
 
 把所有行以列表的形式写向 `response`， 没有行分隔符。这个方法让 `HttpResponse` 实例变成类似流的对象。
 
@@ -448,7 +444,7 @@ response['Age'] = 20 # header fields
 
 * `json_dumps_params` 是一个字典，它是在生成响应时，传给 `json.dumps()` 的参数。
 
-#### 用法
+*用法*
 
 典型的用法如下：
 

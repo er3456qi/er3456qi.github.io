@@ -1,16 +1,14 @@
 ---
 layout: post
-title:  "Django validation 文档手记"
-date:   2016-08-06 21:51:32
-meta_description: Django validation 文档手记
-categories:
-- blog
-tags:
-- Python
+title: "Django validation 文档手记"
+date: 2016-08-06 21:51:32
+category: programming
+tags: python django
+finished: true
 ---
 
 
-# 表单验证和字段验证
+## 表单验证和字段验证
 
 表单验证是对表单的字段进行验证，而字段验证是在你自定义一个新的字段的时候对字段的需求进行验证。
 

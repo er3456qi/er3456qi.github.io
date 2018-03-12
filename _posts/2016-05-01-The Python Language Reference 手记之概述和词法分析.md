@@ -1,12 +1,10 @@
 ---
 layout: post
-title:  "The Python Language Reference 手记之概述和词法分析"
-date:   2016-05-01 19:57:01
-meta_description: The Python Language Reference 手记
-categories:
-- blog
-tags:
-- Python
+title: "The Python Language Reference 手记之概述和词法分析"
+date: 2016-05-01 19:57:01
+category: programming
+tags: python
+finished: true
 ---
 
 ## 概述
@@ -21,36 +19,36 @@ tags:
 
 编码声明，如下所示：
 
-{% highlight python %}
+```python
 
     # -*- coding: <encoding-name> -*-
 
-{% endhighlight %}
-   
+```
+
 就是我们在Python脚本文件中经常能看到的，表示此脚本内容以什么编码方式编码。
 它是注释的一种。如果Python脚本的第一行或是第二行中出现了能匹配如下正则表达式：
 
-{% highlight python %}
+```python
 
     coding[=:]\s*([-\w.]+)
 
-{% endhighlight %}
+```
 
 的语句，则会被当做是编码声明处理。正则表达式很简单，我就不解释了。只要能匹配这个正则表达式，就可以，所以还有其他的声明方式：
 
-{% highlight python %}
+```python
 
     # vim:fileencoding=<encoding-name>
 
-{% endhighlight %}
+```
 
 这里说的两种编码声明是官方文件里说的两种。另一种更常见的应该是这个：
 
-{% highlight python %}
+```python
 
     # coding:utf-8
 
-{% endhighlight %}
+```
 
 它也能匹配上面说的那个正则表达式，所以这个也是可用的。
 如果你使用Python 2，如果你的脚本里有非ASCII字符，那么最好要加上编码声明。
@@ -67,7 +65,7 @@ Python 3 在 2 的基础上扩展了标识符，支持一些非ASCII字符作为
 
 * `_*`: 这类保留字不能通过`from module import *`导入。特殊字符`_`,在交互式解释器中用于存储上次估值的结果:
 
-{% highlight python %}
+```python
 
 [In ]: 1 + 2
 [Out]: 3
@@ -75,7 +73,7 @@ Python 3 在 2 的基础上扩展了标识符，支持一些非ASCII字符作为
 [In ]: _
 [Out]: 3
 
-{% endhighlight %}
+```
 
 当不在交互解释器环境中时，`_`是没有定义的。
 
@@ -88,7 +86,7 @@ Python 3 在 2 的基础上扩展了标识符，支持一些非ASCII字符作为
 
 下面举个私有属性的例子：
 
-{% highlight python %}
+```python
 
 [In ]: class Person():
 ...        name = 'tom'
@@ -109,7 +107,7 @@ AttributeError: 'Person' object has no attribute '__age'
 [In ]: p._Person__age
 [Out]: 18
 
-{% endhighlight %}
+```
 
 看代码的最后，其实还是可以访问到的。
 
@@ -129,13 +127,13 @@ Python 中，字节文本总是以 `b` 或 `B` 开头。他们会生成`[bytes][
 
 这样件找了字符串连接符（`\`）的使用数量，可以很方便的将一个长字符串分隔在多行上，甚至可以在字符串的某一部分添加注释,比如：
 
-{% highlight python %}
+```python
 
 re.compile("[A-Za-z_]"       # letter or underscore
            "[A-Za-z0-9_]*"   # letter, digit or underscore
           )
 
-{% endhighlight %}
+```
 
 
 

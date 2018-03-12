@@ -1,18 +1,15 @@
 ---
 layout: post
-title:  "Flask Quick Start 手记"
-date:   2016-05-03 20:48:11
-meta_description: Flask Quick Start 手记
-categories:
-- blog
-tags:
-- Python
+title: "Flask Quick Start 手记"
+date: 2016-05-03 20:48:11
+category: programming
+tags: python flask
+finished: true
 ---
-
 
 ## 一个最小的 Flask 应用
 
-{% highlight python %}
+```python
 
 from flask import Flask
 app = Flask(__name__)
@@ -24,7 +21,7 @@ def hello_world():
 if __name__ == '__main__':
     app.run()
 
-{% endhighlight %}
+```
 
 那么，这些代码是什么意思呢？
 
@@ -41,7 +38,7 @@ if __name__ == '__main__':
 
 开启调试模式时，服务器会在代码修改时自动重启。开启的方式有两种：
 
-{% highlight python %}
+```python
 
 app.debug = True
 app.run()
@@ -49,14 +46,14 @@ app.run()
 """ 或者 """
 app.run(debug=True)
 
-{% endhighlight %}
+```
 
 
 ## 路由
 
 `route()` 装饰器用于把一个函数绑定到一个 URL:
 
-{% highlight python %}
+```python
 
 @app.route('/')
 def index():
@@ -66,12 +63,12 @@ def index():
 def hello():
     return 'Hello World'
 
-{% endhighlight %}
+```
 
 通过把 URL 的一部分标记为 `<variable_name>` 就可以在 URL 中添加变量。标记的部分会作为关键字参数传递给函数。
 通过使用 `<converter:variable_name>` ，可以选择性的加上一个转换器，为变量指定规则。比如：
 
-{% highlight python %}
+```python
 
 @app.route('/user/<username>')
 def show_user_profile(username):
@@ -83,7 +80,7 @@ def show_post(post_id):
     # show the post with the given id, the id is an integer
     return 'Post %d' % post_id
 
-{% endhighlight %}
+```
 
 现有的转换器（converter）有：
 
@@ -97,7 +94,7 @@ def show_post(post_id):
  `url_for()` 函数用于构建指定函数的 URL 的。类似于反射。
  它把函数名称作为第一个参数，其余参数对应 URL 中的变量。未知变量将添加到 URL 中作为查询参数。比如：
  
-{% highlight python %}
+```python
 
 >>> from flask import Flask, url_for
 >>> app = Flask(__name__)
@@ -121,25 +118,25 @@ def show_post(post_id):
 /login?next=/
 /user/John%20Doe
 
-{% endhighlight %}
+```
 
 动态的 web 应用也需要静态文件，一般是 CSS 和 JavaScript 文件。
 Flask 默认静态文件位于应用的 `/static` 文件夹中。静态文件的链接也可以由 `url_for()` 函数生成：
 
-{% highlight python %}
+```python
 
 # 使用选定的 'static' 端点就可以生成相应的 URL，
 # 这个静态文件在文件系统中的位置应该是 static/style.css
 url_for('static', filename='style.css')
 
-{% endhighlight %}
+```
 
 
 ## HTTP 方法
 
 默认情况下，一个路由只回应 GET 请求，但是可以通过 `methods` 参数使用不同方法。比如：
 
-{% highlight python %}
+```python
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -148,7 +145,7 @@ def login():
     else:
         show_the_login_form()
 
-{% endhighlight %}
+```
 
 如果当前使用的是 GET 方法，会自动添加 HEAD ，你不必亲自操刀。
 
@@ -158,7 +155,7 @@ def login():
 Flask 使用 [Jinja2][jinja2] 作为模板引擎。
 在Flask中，使用 `render_template()` 方法可以渲染模板，你只要提供模板名称和需要作为参数传递给模板的变量就行了。例子：
 
-{% highlight python %}
+```python
 
 from flask import render_template
 
@@ -167,7 +164,7 @@ from flask import render_template
 def hello(name=None):
     return render_template('hello.html', name=name)
     
-{% endhighlight %}
+```
 
 Flask 默认会在 `/templates` 文件夹内寻找模板。
 
@@ -183,7 +180,7 @@ Flask 默认会在 `/templates` 文件夹内寻找模板。
     <h1>Hello World!</h1>
 {\% endif %}
 
-{% endhighlight %}
+```
 
 提醒：在模板内部你也可以访问 `request` 、`session` 和 `g` 对象，以及 `get_flashed_messages()` 函数。
 
@@ -193,7 +190,7 @@ Flask 默认会在 `/templates` 文件夹内寻找模板。
 首先，你必须从 flask 模块导入请求对象，之后通过使用 `method` 属性可以操作当前请求方法，通过使用 form 属性处理表单数据。
 以下是使用两个属性的例子:
 
-{% highlight python %}
+```python
 
 from flask import request
 
@@ -209,19 +206,19 @@ def login():
     # 如果请求访求是 GET 或验证未通过就会执行下面的代码
     return render_template('login.html', error=error)
 
-{% endhighlight %}
+```
 
 当 form 属性中不存在这个键时会引发一个 `KeyError` 。如果你不像捕捉一个标准错误一样捕捉 `KeyError` ，
 那么会显示一个 `HTTP 400 Bad Request` 错误页面。因此，多数情况下你不必处理这个问题。
 
 要操作 URL （如 `?key=value` ）中提交的参数可以使用 `args` 属性:
 
-{% highlight python %}
+```python
 
 """ 这里 args 是个字典dict，get的第二个参数是没有key的时候返回的值 """
 searchword = request.args.get('key', '')
 
-{% endhighlight %}
+```
 
 ## 文件上传
 
@@ -233,7 +230,7 @@ searchword = request.args.get('key', '')
 这个属性基本和标准 Python file 对象一样，另外多出一个用于把上传文件保存到服务器的文件系统中的 `save()` 方法。
 下例展示其如何运作:
 
-{% highlight python %}
+```python
 
 from flask import request
 
@@ -244,12 +241,12 @@ def upload_file():
         f.save('/var/www/uploads/uploaded_file.txt')
     ...
 
-{% endhighlight %}
+```
 
 如果想要知道文件上传之前其在客户端系统中的名称，可以使用`filename` 属性。但是请牢记这个值是可以伪造的，永远不要信任这个值。
 如果想要把客户端的文件名作为服务器上的文件名，可以通过 Werkzeug 提供的 `secure_filename()` 函数:
 
-{% highlight python %}
+```python
 
 from flask import request
 from werkzeug import secure_filename
@@ -261,7 +258,7 @@ def upload_file():
         f.save('/var/www/uploads/' + secure_filename(f.filename))
     ...
 
-{% endhighlight %}
+```
 
 [这里][upload]有更详细的文件上传的介绍。
 
@@ -273,7 +270,7 @@ def upload_file():
 
 读取 cookies:
 
-{% highlight python %}
+```python
 
 from flask import request
 
@@ -283,11 +280,11 @@ def index():
     # 使用 cookies.get(key) 来代替 cookies[key] ，
     # 以避免当 cookie 不存在时引发 KeyError 。
 
-{% endhighlight %}
+```
 
 储存 cookies:
 
-{% highlight python %}
+```python
 
 from flask import make_response
 
@@ -297,7 +294,7 @@ def index():
     resp.set_cookie('username', 'the username')
     return resp
 
-{% endhighlight %}
+```
 
 注意， cookies 设置在响应对象上。通常只是从视图函数返回字符串， Flask 会把它们转换为响应对象。
 如果你想显式地转换，那么可以使用 `make_response()` 函数获得一个响应对象，然后再修改它。
@@ -306,7 +303,7 @@ def index():
 
 使用 `redirect()` 函数可以重定向。使用 `abort()` 可以更早退出请求，并返回错误代码:
 
-{% highlight python %}
+```python
 
 from flask import abort, redirect, url_for
 
@@ -319,14 +316,14 @@ def login():
     abort(401)
     this_is_never_executed()
 
-{% endhighlight %}
+```
 
 上例实际上是没有意义的，它让一个用户从索引页重定向到一个无法访问的页面（401 表示禁止访问）。
 但是上例可以说明重定向和出错跳出是如何工作的。
 
 缺省情况下每种出错代码都会对应显示一个黑白的出错页面。使用 `errorhandler()` 装饰器可以定制出错页面:
 
-{% highlight python %}
+```python
 
 from flask import render_template
 
@@ -334,7 +331,7 @@ from flask import render_template
 def page_not_found(error):
     return render_template('page_not_found.html'), 404
 
-{% endhighlight %}
+```
 
 注意 `render_template()` 后面的 404，这表示页面对就的出错代码是 404 ，即页面不存在。缺省情况下 200 表示一切正常。
 
@@ -352,7 +349,7 @@ def page_not_found(error):
 
 如果想要在视图内部掌控响应对象的结果，那么可以使用 `make_response()` 函数，它会返回一个用于响应的对象，可以对其修改：
 
-{% highlight python %}
+```python
 
 @app.errorhandler(404)
 def not_found(error):
@@ -360,7 +357,7 @@ def not_found(error):
     resp.headers['X-Something'] = 'A value'
     return resp
 
-{% endhighlight %}
+```
 
 ## 会话
 
@@ -369,7 +366,7 @@ def not_found(error):
 
 使用会话之前你必须设置一个密钥。举例说明:
 
-{% highlight python %}
+```python
 
 from flask import Flask, session, redirect, url_for, escape, request
 
@@ -402,7 +399,7 @@ def logout():
 # 设置密钥，复杂一点：
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
-{% endhighlight %}
+```
 
 这里用到的 `escape()` 是用来转义的。如果不使用模板引擎就可以像上例一样使用这个函数来转义。
 
@@ -410,13 +407,13 @@ app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
 生成随机数的关键在于一个好的随机种子，困此一个好的密钥应当有足够的随机性。 你的操作系统可以使用一个随机生成器来生成一个好的随机种子：
 
-{% highlight python %}
+```python
 
 >>> import os
 >>> os.urandom(24)
 '\xfd{H\xe5<\x95\xf9\xe3\x96.5\xd1\x01O<!\xd5\xa2\xa0\x9fR"\xa1\xa8'
 
-{% endhighlight %}
+```
 
 只要复制这个随机种子到你的代码中就行了。
 
@@ -437,13 +434,13 @@ app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
 以下是一些日志调用示例:
 
-{% highlight python %}
+```python
 
 app.logger.debug('A value for debugging')
 app.logger.warning('A warning occurred (%d apples)', 42)
 app.logger.error('An error occurred')
 
-{% endhighlight %}
+```
 
 [logger][] 是一个标准的 Python Logger 类， 更多信息详见官方的 [logging 文档][logger] 。
 

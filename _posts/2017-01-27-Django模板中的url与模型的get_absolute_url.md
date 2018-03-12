@@ -1,11 +1,10 @@
 ---
 layout: post
-title:  "Django模板中的url与模型的get_absolute_url"
-date:   2017-01-27 15:00:21
-categories:
-- blog
-tags:
-- Python
+title: "Django模板中的url与模型的get_absolute_url"
+date: 2017-01-27 15:00:21
+category: programming
+tags: python django
+finished: true
 ---
 
 

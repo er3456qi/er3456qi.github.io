@@ -1,12 +1,10 @@
 ---
 layout: post
-title:  "Django modelforms 文档手记"
-date:   2016-08-05 20:11:23
-meta_description: Django modelforms 文档手记
-categories:
-- blog
-tags:
-- Python
+title: "Django modelforms 文档手记"
+date: 2016-08-05 20:11:23
+category: programming
+tags: python django
+finished: true
 ---
 
 

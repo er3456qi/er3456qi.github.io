@@ -1,14 +1,11 @@
 ---
 layout: post
-title:  "Django urls 文档手记"
-date:   2016-07-15 21:46:53
-meta_description: Django urls 文档手记
-categories:
-- blog
-tags:
-- Python
+title: "Django urls 文档手记"
+date: 2016-07-15 21:46:53
+category: programming
+tags: python django
+finished: true
 ---
-
 
 ## Django 如何处理一个请求
 

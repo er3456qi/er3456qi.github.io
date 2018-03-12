@@ -1,16 +1,14 @@
 ---
 layout: post
-title:  "Django middleware 文档手记"
-date:   2016-07-23 20:35:54
-meta_description: Django middleware 文档手记
-categories:
-- blog
-tags:
-- Python
+title: "Django middleware 文档手记"
+date: 2016-07-23 20:35:54
+category: programming
+tags: python django
+finished: true
 ---
 
 
-# 中间件
+## 中间件
 
 中间件是一个钩子框架，它们可以介入 Django 的请求和响应处理过程。它是一个轻量级、底层的“插件”系统，用于在全局修改 Django 的输入或输出。
 
@@ -60,7 +58,7 @@ class SimpleMiddleware(object):
 ```
 这个可调用的 `get_response` 是由 Django 提供，它可能是视图（如果这个中间件是最后一个的话）或者是中间件链中的下一个。当前的中间件并不需要在意它是什么，只要知道它代表给下一个目标的即可。
 
-#### `__init__(get_response)`
+*`__init__(get_response)`*
 
 中间件工厂必须接受一个 `get_response` 参数。你也可以在这个方法里面给中间件初始化一些全局的状态。你要铭记如下两个警告：
 
@@ -113,7 +111,7 @@ Django的程序中，中间件不是必需的 —— 只要你喜欢，`MIDDLEWA
 
 除了基本的 `request/response` 中间件模式之外，你也可以给基于类的中间件添加下面三个方法：
 
-#### `process_view()`
+*`process_view()`*
 
 `process_view(request, view_func, view_args, view_kwargs)`
 
@@ -129,7 +127,7 @@ Django的程序中，中间件不是必需的 —— 只要你喜欢，`MIDDLEWA
 
 类 `CsrfViewMiddleware` 可以被认为是个例外，因为它提供 `csrf_exempt()` 和 `csrf_protect()` 两个装饰器，允许视图显式控制在哪个点需要开启CSRF验证。
 
-#### `process_exception(request, exception)`
+*`process_exception(request, exception)`*
 
 `request` 是一个 `HttpRequest` 对象。`exception` 是一个被视图中的方法抛出来的 `Exception` 对象。
 
@@ -137,7 +135,7 @@ Django的程序中，中间件不是必需的 —— 只要你喜欢，`MIDDLEWA
 
 再次提醒，在处理响应期间，中间件的执行顺序是倒序执行的，这包括 `process_exception`。如果一个异常处理的中间件返回了一个响应，那这个中间件上面的中间件都将不会被调用。
 
-#### `process_template_response()`
+*`process_template_response()`*
 
 `process_template_response(request, response)`
 

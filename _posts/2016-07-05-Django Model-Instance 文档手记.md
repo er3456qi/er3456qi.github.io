@@ -1,14 +1,11 @@
 ---
 layout: post
-title:  "Django Model-Instance 文档手记"
-date:   2016-07-05 21:12:31
-meta_description: Django Model-Instance 文档手记
-categories:
-- blog
-tags:
-- Python
+title: "Django Model-Instance 文档手记"
+date: 2016-07-05 21:12:31
+category: programming
+tags: python django
+finished: true
 ---
-
 
 ## 创建对象
 

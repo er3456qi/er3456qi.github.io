@@ -1,12 +1,10 @@
 ---
 layout: post
-title:  "Django forms 文档手记"
-date:   2016-08-02 21:49:52
-meta_description: Django forms 文档手记
-categories:
-- blog
-tags:
-- Python
+title: "Django forms 文档手记"
+date: 2016-08-02 21:49:52
+category: programming
+tags: python django
+finished: true
 ---
 
 
@@ -144,7 +142,7 @@ HTML5 输入类型和浏览器验证
 
 ### 字段
 
-#### Widgets
+*Widgets*
 
 每个表单字段都有一个对应的 `Widget` 类，它对应一个 HTML 表单 `Widget`，例如 `<input type="text">`。
 
@@ -152,7 +150,7 @@ HTML5 输入类型和浏览器验证
 
 不要将 `Widget` 与表单字段搞混淆。表单字段负责验证输入并直接在模板中使用。`Widget` 负责渲染网页上 HTML 表单的输入元素和提取提交的原始数据。但是， `Widget` 需要赋值给表单字段。
 
-#### 字段的数据
+*字段的数据*
 
 不管表单提交的是什么数据，一旦通过调用 `is_valid()` 成功验证（`is_valid()` 返回 `True`），验证后的表单数据将位于 `form.cleaned_data` 字典中。这些数据已经为你转换好为 Python 的类型。
 

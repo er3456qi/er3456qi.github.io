@@ -1,13 +1,10 @@
 ---
 layout: post
-title:  "Typescript Handbook 精简版之变量声明"
-date:   2016-02-23 17:12:22
-meta_description: Typescript Handbook 精简版之变量声明
-categories:
-- blog
-tags:
-- Typescript
-- 变量
+title: "Typescript Handbook 精简版之变量声明"
+date: 2016-02-23 17:12:22
+category: programming
+tags: Typescript
+finished: true
 ---
 
 ## 变量声明
@@ -20,7 +17,7 @@ tags:
 
 举个例子：
 
-{% highlight typescript %}
+```typescript
 
 // numLivesForCat的值不能再变了
 const numLivesForCat = 9;
@@ -41,7 +38,7 @@ kitty.name = "Kitty";
 kitty.name = "Cat";
 kitty.numLives--;
 
-{% endhighlight %}
+```
 
 另外，使用`const`定义常量时，一定要初始化。
 
@@ -56,7 +53,7 @@ Typescript作为Javascript的超集，自然也是支持`let`和`const`的。
 
 使用`var`时很容易出bug，比如：
 
-{% highlight typescript %}
+```typescript
 
 function sumMatrix(matrix: number[][]) {
     var sum = 0;
@@ -70,7 +67,7 @@ function sumMatrix(matrix: number[][]) {
     return sum;
 }
 
-{% endhighlight %}
+```
 
 里层for循环中的i会覆盖外层的i，因为i引用的都是相同的函数作用域内的变量。
 
@@ -78,7 +75,7 @@ function sumMatrix(matrix: number[][]) {
 
 另外，因为`var`是函数作用域，所以对于一个`var`声明的变量，你可以先使用再声明：
 
-{% highlight typescript %}
+```typescript
 
 bla = 2;
 var bla;
@@ -89,7 +86,7 @@ var bla;
 var bla;
 bla = 2;
 
-{% endhighlight %}
+```
 
 引用一段mozilla文档中的话：
 

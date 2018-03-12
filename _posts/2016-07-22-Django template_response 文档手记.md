@@ -1,16 +1,14 @@
 ---
 layout: post
-title:  "Django template_response 文档手记"
-date:   2016-07-22 23:02:32
-meta_description: Django template_response 文档手记
-categories:
-- blog
-tags:
-- Python
+title: "Django template_response 文档手记"
+date: 2016-07-22 23:02:32
+category: programming
+tags: python django
+finished: true
 ---
 
 
-# `TemplateResponse` 和 `SimpleTemplateResponse`
+## `TemplateResponse` 和 `SimpleTemplateResponse`
 
 标准的 `HttpResponse` 对象是静态的结构。在构造的时候提供给它们一个渲染好的内容，但是当内容改变时它们却不能很容易地完成相应的改变。
 
@@ -43,7 +41,7 @@ tags:
 
 ### 方法
 
-#### `SimpleTemplateResponse.__init__(template, context=None, content_type=None, status=None, charset=None, using=None)`
+*`SimpleTemplateResponse.__init__(template, context=None, content_type=None, status=None, charset=None, using=None)`*
 
 使用给定的模板、上下文、`Content-Type`、`HTTP` 状态和字符集初始化一个 `SimpleTemplateResponse` 对象。
 
@@ -71,13 +69,13 @@ tags:
 
     加载模板使用的模板引擎的名称。
 
-#### `SimpleTemplateResponse.resolve_context(context)`
+*`SimpleTemplateResponse.resolve_context(context)`*
 
 预处理上下文数据（context data），这个上下文数据将会被用来渲染的模版。接受包含上下文数据的一个 `dict`。默认返回同一个 `dict`。
 
 若要自定义上下文，请覆盖这个方法。
 
-#### `SimpleTemplateResponse.resolve_template(template)`
+*`SimpleTemplateResponse.resolve_template(template)`*
 
 解析渲染用到的模板实例。接收一个与后端有关的模板对象（例如 `get_template()` 返回的对象）、模板的名称或者一个模板名称列表。
 
@@ -85,7 +83,7 @@ tags:
 
 若要自定义模板的加载，请覆盖这个方法。
 
-#### `SimpleTemplateResponse.add_post_render_callback()`
+*`SimpleTemplateResponse.add_post_render_callback()`*
 
 添加一个渲染之后调用的回调函数。这个钩子可以用来延迟某些特定的处理操作（例如缓存）到渲染之后。
 
@@ -95,7 +93,7 @@ tags:
 
 如果回调函数返回非 `None` 值，它将用作响应并替换原始的响应对象（以及传递给下一个渲染之后的回调函数，以此类推）。
 
-#### `SimpleTemplateResponse.render()`
+*`SimpleTemplateResponse.render()`*
 
 设置 `response.content` 为 `SimpleTemplateResponse.rendered_content` 的结果，执行所有渲染之后的回调函数，最后返回生成的响应对象。
 
@@ -108,7 +106,7 @@ tags:
 
 ### 方法
 
-#### `TemplateResponse.__init__(request, template, context=None, content_type=None, status=None, charset=None, using=None)`
+*`TemplateResponse.__init__(request, template, context=None, content_type=None, status=None, charset=None, using=None)`*
 
 使用给定的模板、上下文、`Content-Type`、`HTTP` 状态和字符集实例化一个`TemplateResponse` 对象。
 

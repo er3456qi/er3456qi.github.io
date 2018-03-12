@@ -1,14 +1,13 @@
 ---
 layout: post
-title:  "Django Model 文档手记"
-date:   2016-07-03 17:23:53
-meta_description: Django Model 文档手记
-categories:
-- blog
-tags:
-- Python
+title: "Django Model 文档手记"
+date: 2016-07-03 17:23:53
+category: programming
+tags: python django
+finished: true
 ---
 
+## 模型
 
 * 每个模型都是`django.db.models.Model`的子类。
 * 模型的每个属性都表示成数据库的一个字段。

@@ -1,16 +1,14 @@
 ---
 layout: post
-title:  "Django class based views 文档手记"
-date:   2016-07-26 21:43:21
-meta_description: Django class based views 文档手记
-categories:
-- blog
-tags:
-- Python
+title: "Django class based views 文档手记"
+date: 2016-07-26 21:43:21
+category: programming
+tags: python django
+finished: true
 ---
 
 
-# 基于类的视图
+## 基于类的视图
 
 视图是一个可调用对象，它接收一个请求然后返回一个响应。这个可调用对象可以不只是函数，Django 提供一些可以用作视图的类。它们允许你结构化你的视图并且利用继承和混合重用代码。
 

@@ -1,13 +1,11 @@
 ---
 layout: post
-title:  "Android的异步操作，AsyncTask简单使用"
-date:   2015-05-17 19:33:00
-meta_description: Android异步操作, AsyncTask
-categories:
-- blog
-tags:
-- Android
-- AsyncTask
+title: "Android的异步操作，AsyncTask简单使用"
+date: 2015-05-17 19:33:00
+subtitle: Android异步操作, AsyncTask
+category: programming
+tags: Android AsyncTask
+finished: true
 ---
 
 AsyncTask，顾名思义，异步任务。说到异步，最简单的理解就是不同步。再复杂一点理解，就得举例子了。
@@ -40,8 +38,7 @@ AsyncTask，顾名思义，异步任务。说到异步，最简单的理解就�
 
 先给一个官方的例子：
 
-{% highlight java %}
-
+```java
 private class DownloadFilesTask extends AsyncTask<URL, Integer, Long> {
     protected Long doInBackground(URL... urls) {
         int count = urls.length;
@@ -63,12 +60,13 @@ private class DownloadFilesTask extends AsyncTask<URL, Integer, Long> {
         showDialog("Downloaded " + result + " bytes");
     }
  }
-
-{% endhighlight %}
+```
 
 执行AsyncTask的时候，必须在UI线程中执行，如下语句。
 
- `new DownloadFilesTask().execute(url1, url2, url3);`
+```java
+new DownloadFilesTask().execute(url1, url2, url3);
+```
  
 可以看到，在继承AsyncTask的时候，有几个泛型类型，如`AsyncTask<URL, Integer, Long>`，简单解释下。
 
@@ -78,7 +76,9 @@ private class DownloadFilesTask extends AsyncTask<URL, Integer, Long> {
 
 当然，如果你什么都不需要，可以都使用`Void`。
 
- `private class MyTask extends AsyncTask<Void, Void, Void> { ... }`
+```java
+private class MyTask extends AsyncTask<Void, Void, Void> { ... }
+```
  
 另外，还有一个可以重写的方法，是`onPreExecute()`，它在`doInBackground`之前被调用，所以如果需要的话，你可以重写它然后做一些实例化进度条啊之类的工作。
 

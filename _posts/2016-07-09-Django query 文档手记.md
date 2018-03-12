@@ -1,15 +1,13 @@
 ---
 layout: post
-title:  "Django query 文档手记"
-date:   2016-07-09 19:21:52
-meta_description: Django query 文档手记
-categories:
-- blog
-tags:
-- Python
+title: "Django query 文档手记"
+date: 2016-07-09 19:21:52
+category: programming
+tags: python django
+finished: true
 ---
 
-# 查询
+## 查询
 
 一旦你建立好数据模型，Django 会自动为你生成一套数据库抽象的API，可以让你创建、检索、更新和删除对象。
 

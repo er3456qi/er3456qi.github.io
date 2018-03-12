@@ -1,12 +1,10 @@
 ---
 layout: post
-title:  "Django views 文档手记"
-date:   2016-07-21 20:32:53
-meta_description: Django views 文档手记
-categories:
-- blog
-tags:
-- Python
+title: "Django views 文档手记"
+date: 2016-07-21 20:32:53
+category: programming
+tags: python django
+finished: true
 ---
 
 ## 内置的视图

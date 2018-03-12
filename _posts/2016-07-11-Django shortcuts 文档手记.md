@@ -1,16 +1,13 @@
 ---
 layout: post
-title:  "Django shortcuts 文档手记"
-date:   2016-07-11 16:42:11
-meta_description: Django shortcuts 文档手记
-categories:
-- blog
-tags:
-- Python
+title: "Django shortcuts 文档手记"
+date: 2016-07-11 16:42:11
+category: programming
+tags: python django
+finished: true
 ---
 
-
-# Django 的快捷函数
+## Django 的快捷函数
 
 `django.shortcuts` 收集了“跨越” 多层MVC 的辅助函数和类。 换句话讲，这些函数/类为了方便，引入了可控的耦合。
 

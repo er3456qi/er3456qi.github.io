@@ -1,14 +1,11 @@
 ---
 layout: post
-title:  "The Python Language Reference 手记之数据模型 1"
-date:   2016-05-02 18:02:14
-meta_description: The Python Language Reference 手记
-categories:
-- blog
-tags:
-- Python
+title: "The Python Language Reference 手记之数据模型 1"
+date: 2016-05-02 18:02:14
+category: programming
+tags: python
+finished: true
 ---
-
 
 ## 对象,值和类型
 
@@ -25,7 +22,7 @@ Python 的每个对象都具有一个*标识*，一个*类型*和一个*值*。
 这里有个问题要强调一下，可变和不可变是由对象的类型确定的，比如数值,字符串和元组是不可变的,而字典和列表是可变的。
 之所以要强调，是因为某些容器类是不可变的，但是在某些情况下，它其实是可以改变的，比如：
 
-{% highlight python %}
+```python
 
 In [1]: l = [1, 2]
 
@@ -39,7 +36,7 @@ In [4]: l[0] = 2
 In [5]: t
 Out[5]: ([2, 2], 1)
 
-{% endhighlight %}
+```
 
 `tuple`元组是不可变类型的，但是因为它的元素中包含了可变的对象（`list`），所以元祖的值实际是可变的。
 但是因为对象的可变不可变由类型来决定，所以元组是不可变的。
@@ -60,7 +57,7 @@ Out[5]: ([2, 2], 1)
 对于不可变对象,计算新值的操作可能实际上返回的是一个已经存在的具有相同类型和值的对象的引用,而这对于可变对象是不允许。
 举个例子：
 
-{% highlight python %}
+```python
 
 In [1]: a1 = 1
 In [2]: a2 = 1
@@ -100,7 +97,7 @@ Out[17]: 139673881949960
 In [18]: id(t2)
 Out[18]: 139673881949576
 
-{% endhighlight %}
+```
 
 通过例子可以发现，值相同的数字和字符串类型的标识（id）是一样的，因为它们是不可变的，当值相同时，给了它们相同的标识（内存地址）。
 形象的说，当 `a1 = 1` 操作时，系统在内存中创建一个整数对象，值是 `1`，然后把对象 `1` 用变量 `a1` 表示。

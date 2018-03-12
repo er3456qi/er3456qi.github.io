@@ -1,12 +1,10 @@
 ---
 layout: post
-title:  "C#的checked和unchecked"
-date:   2015-05-08 18:27:00
-meta_description: C# checked unchecked
-categories:
-- blog
-tags:
-- c#
+title: "C#的checked和unchecked"
+date: 2015-05-08 18:27:00
+category: programming
+tags: csharp
+finished: true
 ---
 
 C#的 [checked][] 关键字用于对整型算术运算和转换显式启用溢出检查。
@@ -17,8 +15,7 @@ C#的 [checked][] 关键字用于对整型算术运算和转换显式启用溢�
 
 我在学习这段时，遇到的问题是写了unchecked和什么都不写有什么区别，对于代码段3来说，确实没有区别。但是对于代码段1、2，就能看出区别了，代码段1在vs2013里面会有红线，编译出错，而代码段2就没问题。貌似对于直接能看出来的溢出编译器还是能发现的，所以我上面说了**含有变量的表达式**。
 
-{% highlight c# %}
-
+```csharp
 //1. 这句编译器在编译时会报错，因为值溢出了 
 Console.WriteLine(int.MaxValue + 1);
  
@@ -32,9 +29,7 @@ n += 1;
 //4. 加上checked，这样在编译后，运行时一旦溢出就会引发System.OverflowException异常。
 int n = int.MaxValue;
 checked { n += 1; }
-
-{% endhighlight %}
-
+```
 
 [checked]: http://msdn.microsoft.com/zh-cn/library/74b4xzyw.aspx
 [unchecked]: http://msdn.microsoft.com/zh-cn/library/a569z7k8.aspx
