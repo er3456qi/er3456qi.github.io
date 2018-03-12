@@ -1,6 +1,6 @@
 # Site settings
 title: Wen Blog
-name: Wen Blog # your name
+name: Wnbot # your name
 email: er3456qi@gmail.com # your email address
 description: >
     A Personal Blog Site. # this means to ignore newlines until "baseurl:"
