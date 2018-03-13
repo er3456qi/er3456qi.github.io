@@ -3,7 +3,7 @@ layout: post
 title: "Javascript数组不完全解析"
 date: 2015-06-20 12:33:00
 category: programming
-tags: Javascript
+tags: javascript
 finished: true
 ---
 

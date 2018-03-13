@@ -4,7 +4,7 @@ title: "Android的异步操作，AsyncTask简单使用"
 date: 2015-05-17 19:33:00
 subtitle: Android异步操作, AsyncTask
 category: programming
-tags: Android AsyncTask
+tags: android asynctask
 finished: true
 ---
 

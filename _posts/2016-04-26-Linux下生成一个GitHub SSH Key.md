@@ -3,7 +3,7 @@ layout: post
 title: "Linux下生成一个GitHub SSH Key"
 date: 2016-04-26 14:25:41
 category: computer_things
-tags: GitHub Git
+tags: github
 finished: true
 ---
 

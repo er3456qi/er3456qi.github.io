@@ -4,7 +4,7 @@ title: "Try Redis : Redis 入门教程"
 subtitle: "总结自 Redis 官方文档"
 date: 2016-02-16 17:06:01
 category: programming
-tags: Redis
+tags: redis
 finished: true
 ---
 
