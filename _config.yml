@@ -2,8 +2,7 @@
 title: Wen Blog
 name: Wnbot # your name
 email: er3456qi@gmail.com # your email address
-description: >
-    A Personal Blog Site. # this means to ignore newlines until "baseurl:"
+description: A Blog Web Site. # description
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://er3456qi.github.io" # the base hostname & protocol for your site
 twitter_username: er3456qi # your Twitter username
