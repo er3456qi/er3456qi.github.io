@@ -68,6 +68,14 @@ ul, ol {
     letter-spacing: 1px;
 }
 
+.post ul {
+    margin-left: $spacing-unit * .5;
+}
+
+.post ol {
+    margin-left: $spacing-unit * .5;
+}
+
 ul {
     list-style-type: square;
 }
