@@ -3,7 +3,7 @@ layout: post
 title: "Typescript Handbook 精简版之变量声明"
 date: 2016-02-23 17:12:22
 category: programming
-tags: Typescript
+tags: typescript
 finished: true
 ---
 
