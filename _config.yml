@@ -4,10 +4,10 @@ name: Wnbot # your name
 email: er3456qi@gmail.com # your email address
 description: A Blog Web Site. # description
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://er3456qi.github.io" # the base hostname & protocol for your site
+url: "https://www.wnbot.xyz" # the base hostname & protocol for your site
 twitter_username: er3456qi # your Twitter username
 github_username: er3456qi # your Github username
-disqus_username: a-wnbot-xyz # your disqus username
+disqus_username: wnbot # your disqus username
 
 # google-analytics: UA-75034651-1 # add it if you have one
 
