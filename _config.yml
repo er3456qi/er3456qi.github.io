@@ -1,18 +1,31 @@
-# Site settings
-title: Wen Blog
-name: Wnbot # your name
-email: er3456qi@gmail.com # your email address
-description: A Blog Web Site. # description
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://www.wnbot.xyz" # the base hostname & protocol for your site
-twitter_username: er3456qi # your Twitter username
-github_username: er3456qi # your Github username
-disqus_username: wnbot # your disqus username
+# Site Build Settings
 
-# google-analytics: UA-75034651-1 # add it if you have one
+# Jekyll-paginate-v2 configuration
+#  pagination:
+#   enabled: true
+#   per_page: 5
+#   permalink: '/page/:num/'
+#   title: ':title - page :num of :max'
+#   limit: 0
+#   sort_field: 'date'
+#   sort_reverse: true
 
-skillstree: false # turn on or off the skills tree in about page
+# jekyll-paginate configuration
+paginate:            5
 
 # Build settings
-permalink: none
-markdown: kramdown
+markdown:            kramdown
+highlighter:         rouge
+permalink:           none
+plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
+
+# Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
+title:		           'Wnblog'
+description:	       'a simple blog site'
+author:              'wnbot'
+
+url:                 'http://localhost:4000/'
+baseurl:             '' # the subpath of your site, e.g. /blog
+# RSS 2.0 can be used instead of Atom by uncommenting following two lines
+#feed:
+#  path: rss-feed.xml

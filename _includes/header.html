@@ -1,6 +1,7 @@
-{% include head.html %}
-{% if site.google-analytics %}
-    {% include google-analytics.html %}
-{% endif %}
-
-<title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+<header class="masthead">
+  <div class="masthead-title">
+    <a href="{{ site.url }}/">{{ site.title }}</a>
+    <!-- <small class="masthead-subtitle">{{ site.description }}</small> -->
+  </div>
+  {% include menu.html %}
+</header>
