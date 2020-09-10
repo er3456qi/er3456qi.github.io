@@ -24,7 +24,7 @@ title:		           'Wnblog'
 description:	       'a simple blog site'
 author:              'wnbot'
 
-url:                 'http://localhost:4000/'
+url:                 'https://www.wnbot.xyz/'
 baseurl:             '' # the subpath of your site, e.g. /blog
 # RSS 2.0 can be used instead of Atom by uncommenting following two lines
 #feed:
