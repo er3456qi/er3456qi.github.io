@@ -350,6 +350,21 @@ pre code {
   background-color: transparent;
 }
 
+pre::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+pre::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background-color: #e3e3e3;
+  border-radius: 10px;
+}
+
 /* Horizontal code overflow fix */
 pre.highlight {
   white-space: pre;
