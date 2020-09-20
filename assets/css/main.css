@@ -165,6 +165,10 @@ hr {
   letter-spacing: 1.2px;
 }
 
+.post-container p a {
+    color: #3eaf7c;
+}
+
 .posts {
   margin-bottom: 4.5rem;
   padding: 0px;
